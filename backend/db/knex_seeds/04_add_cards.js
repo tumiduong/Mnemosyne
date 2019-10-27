@@ -1,11 +1,11 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return Promise.all([
-    knex('decks').del(),
-    knex.raw('ALTER SEQUENCE decks_id_seq RESTART WITH 1'),
-    knex('decks').then(function() {
+    knex('cards').del(),
+    knex.raw('ALTER SEQUENCE cards_id_seq RESTART WITH 1'),
+    knex('cards').then(function() {
       // Inserts seed entries
-      return knex('decks').insert([
+      return knex('cards').insert([
         {
           deck_id: 3,
           term:'Circulatory System',
