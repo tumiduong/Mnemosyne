@@ -1,0 +1,87 @@
+/* Side bar and the other contents */
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  background-color: #9BA3BE;
+}
+
+.sidenav a {
+  padding-right: 1.5em;
+  padding-left: 0.7em;
+  /* padding-bottom: 1em; */
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Red Hat Display';
+  font-weight: 600;
+  color: white;
+}
+
+.sidenav a:hover {
+  color: #84E296;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.learn-div {
+  display: flex;
+}
+
+.icons {
+  padding-left: 1.5em;
+  padding-top: 0.2em;
+  width:1.4em;
+  height: 1.4em;
+}
+
+.create-div {
+  display: flex;
+  padding-top: 1.5em;
+}
+
+.practice-div {
+  display: flex;
+  padding-top: 1.5em;
+}
+
+.profile-div {
+  display:flex;
+  flex-direction: column;
+  padding-top: 1.5em;
+  padding-left: 1em;
+  padding-bottom: 2em;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Red Hat Display';
+  font-weight: 600;
+  color: white;
+}
+
+span#welcome-message{
+  padding-bottom: 1em;
+  font-size: 1em;
+  font-family: 'Red Hat Display';
+  font-weight: 400;
+  color: white;
+}
+
+span#profile-info{
+  padding-bottom: 1em;
+  font-size: 1.5em;
+  font-family: 'Red Hat Display';
+  font-weight: 700;
+  color: white;
+}
+
+a#view-profile {
+  font-family: 'Red Hat Display';
+  font-size: 0.6em;
+  padding: 0em;
+  font-weight: 400;
+  color: white;
+}

@@ -1,10 +1,16 @@
-import DeckListItem from "./DeckListItem";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as useParams } from "react-router-dom";
+import './DeckList.css'
 import axios from 'axios';
+import DeckListItem from "./DeckListItem";
+import Navbar from '../Navbar';
+import Sidenav from '../Sidenav';
 
-export default function DeckList() {
-  const { id } = useParams();
+
+export default function DeckList(props) {
+  // const { id } = useParams();
+  // console.log("id", id);
+  const { id } = props.match.params
   const [deck, setDeck] = useState([]);
 
   useEffect(() => {
@@ -17,15 +23,27 @@ export default function DeckList() {
       })
   }, []);
 
+
   const decks = deck.map(deck => {
     return (
-        <DeckListItem
-          key={deck.id}
-          name={deck.name}
-          description={deck.description}
-          subject={deck.subject}
-          />
-      );
+      <DeckListItem
+        key={deck.id}
+        name={deck.name}
+        description={deck.description}
+        subjectName={deck.subject_name}
+      />
+    );
   });
-  return <ul>{decks}</ul>;
+
+  return (
+    <div>
+      <Navbar />
+      <div className="test">
+        <Sidenav />
+        <div className="deck-list"> {decks} </div>
+      </div>
+    </div>
+  )
 }
+
+
