@@ -11,7 +11,7 @@ exports.up = function(knex) {
     t.string('definition');
     t.string('image');
   
-    t.foreign('deck_id').references('id').inTable('decks');
+    t.foreign('deck_id').references('id').inTable('decks').onDelete('CASCADE');
   });
 };
 

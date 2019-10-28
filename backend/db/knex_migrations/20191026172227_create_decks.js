@@ -14,8 +14,8 @@ exports.up = function(knex) {
     t.string('link');
     t.timestamps(true, true);
   
-    t.foreign('user_id').references('id').inTable('users');
-    t.foreign('subject_id').references('id').inTable('subjects');
+    t.foreign('user_id').references('id').inTable('users').onDelete('CASCADE');
+    t.foreign('subject_id').references('id').inTable('subjects').onDelete('CASCADE');
   });
 };
 

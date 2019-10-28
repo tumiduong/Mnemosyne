@@ -12,8 +12,8 @@ exports.up = function(knex) {
       .unsigned();
     t.timestamps(true, true);
   
-    t.foreign('user_id').references('id').inTable('users');
-    t.foreign('deck_id').references('id').inTable('decks');
+    t.foreign('user_id').references('id').inTable('users').onDelete('CASCADE');
+    t.foreign('deck_id').references('id').inTable('decks').onDelete('CASCADE');
   });
 };
 
