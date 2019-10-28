@@ -136,6 +136,31 @@ exports.seed = function(knex) {
           term: 'Mt',
           definition: 'Meitnerium',
         },
+        {
+          deck_id: 2,
+          term: 'Buoyancy',
+          definition: 'For an object submerged in a fluid at rest, the fluid exerts a force equal to the weight of the displaced volume of fluid.',
+        },
+        {
+          deck_id: 2,
+          term: 'Fanning Friction Factor',
+          definition: 'The wall shear stress divided by the dynamic pressure in turbulent pipe flow.  Used for calculating pressure drop in pipes.',
+        },
+        {
+          deck_id: 2,
+          term: 'Kinetic Energy/Volume(Dynamic Pressure)',
+          definition: 'The extra pressure that you would get if you stopped the motion of a flow.',
+        },
+        {
+          deck_id: 2,
+          term: 'Reynolds Stress',
+          definition: 'The added momentum flux (stress) due to turbulent velocity fluctuations.',
+        },
+        {
+          deck_id: 2,
+          term: 'Control Volume',
+          definition: 'Volume in space of special interest for particular analysis. The surface of the control volume is referred as a control surface and is a closed surface. The surface is defined with relative to a coordinate system that may be fixed, moving or rotating.',
+        },
       ]);
     }),
   ]);
