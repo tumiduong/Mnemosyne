@@ -4,14 +4,17 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CreateDeck from './CreateDeck';
 import axios from "axios";
 import useApplicationData from './hooks/useApplicationData';
+import Register from './components/User/Register';
+import Login from './components/User/Login';
 
 function App() {
 
   
   return (
     <Router>
-      <CreateDeck>
-      </CreateDeck>
+      <Route path="/create" component={CreateDeck} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Switch>
         <Route exact path="/users">
           <Users  />
