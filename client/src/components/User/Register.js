@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import { Redirect } from "react-router-dom";
 
 export default function Register() {
@@ -45,53 +43,46 @@ export default function Register() {
 
   return (
     <div>
-    <div>{redirectRender()}</div>
-    <div className="signup-form">
-      <Form
-        onSubmit={event => event.preventDefault()}>
-        <Form.Group controlId="formGroupFirstName">
-          <Form.Control
+      <div>{redirectRender()}</div>
+      
+      <div className="signup-form">
+        <form
+          onSubmit={event => event.preventDefault()}>
+            
+          <input
             type="text"
             name="firstName"
             placeholder="First name"
             onChange={event => setFirstName(event.target.value)}
           />
-        </Form.Group>
-        <Form.Group controlId="formGroupLastName">
-          <Form.Control
+          <input
             type="text"
             name="lastName"
             placeholder="Last name"
             onChange={event => setLastName(event.target.value)}
           />
-        </Form.Group>
-        <Form.Group controlId="formGroupEmail">
-          <Form.Control
+          <input
             type="text"
             name="email"
             placeholder="Email address"
             onChange={event => setEmail(event.target.value)}
           />
-        </Form.Group>
-        <Form.Group controlId="formGroupPassword">
-          <Form.Control
+          <input
             type="password"
             name="password"
             placeholder="Password"
             onChange={event => setPassword(event.target.value)}
           />
-        </Form.Group>
 
-        <div className="error">{error}</div>
+          <div className="error">{error}</div>
 
-        <Button
-          variant="success"
-          type="submit"
-          onClick={() => validate()}>
-          Sign up
-        </Button>
-      </Form>
-    </div>
+          <button
+            type="submit"
+            onClick={() => validate()}>
+            Sign up
+          </button>
+        </form>
+      </div>
     </div>
 );
 }
