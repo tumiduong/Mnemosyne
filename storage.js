@@ -97,3 +97,21 @@ useEffect(() => {
     </div>
   );
 }
+
+
+
+
+<div className="layout">
+<ul>
+  <li>
+    <Link to="/users">Users</Link>
+  </li>
+  <li>
+    <Link to="/about">Decks</Link>
+  </li>
+  <li>
+    <Link to="/dashboard">Cards</Link>
+  </li>
+</ul>
+
+<hr />

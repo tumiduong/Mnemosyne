@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import CreateDeck from './CreateDeck';
 import axios from "axios";
 import useApplicationData from './hooks/useApplicationData';
 
@@ -10,20 +10,8 @@ function App() {
   
   return (
     <Router>
-    <div>
-      <ul>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-        <li>
-          <Link to="/about">Decks</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">Cards</Link>
-        </li>
-      </ul>
-
-      <hr />
+      <CreateDeck>
+      </CreateDeck>
       <Switch>
         <Route exact path="/users">
           <Users  />
@@ -35,7 +23,7 @@ function App() {
           <Dashboard />
         </Route>
       </Switch>
-    </div>
+    
   </Router>
   );
 }
