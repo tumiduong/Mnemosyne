@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import CreateDeck from './CreateDeck';
+import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import CreateDeck from './components/Create/CreateDeck';
 import axios from "axios";
 import useApplicationData from './hooks/useApplicationData';
+import DeckList from './components/Learn/DeckList';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
+
 
 function App() {
 
   
   return (
     <Router>
-      <Route path="/create" component={CreateDeck} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
       <Switch>
-        <Route exact path="/users">
-          <Users  />
+        <Route exact path="/create">
+        <CreateDeck>
+        </CreateDeck>
         </Route>
-        <Route path="/decks">
-          <About />
+        <Route path="/users/:id/decks" component={DeckList} />
+        <Route path="/cards">
+          <Cards />
         </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+
       </Switch>
     
   </Router>
@@ -33,7 +34,7 @@ function App() {
 
 export default App;
 
-function Users(props) {
+function Users() {
 
   const {state, dispatch} = useApplicationData();
   const userList = state.users.map(user=> <li key={user.id}>{user.first_name} {user.last_name} {user.email}</li>)
@@ -42,24 +43,16 @@ function Users(props) {
   return (
   <div className="App">
     <h1>List of users</h1>
-      <h2>Cool!</h2>
-      <h3>Extra cool</h3>
     <ul>
-      {userList}
+      {userList} 
     </ul>
   </div>
   );  
 }
 
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
 
-function Dashboard() {
+
+function Cards() {
 
   const [definition, setDefinition] = useState([]);
 
@@ -82,3 +75,4 @@ useEffect(() => {
     </div>
   );
 }
+

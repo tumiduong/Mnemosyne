@@ -1,11 +1,20 @@
 import React from "react";
+import './DeckListItem.css'
 
 export default function DeckListItem(props) {
   return (
-    <li>
-      <h2>{props.name}</h2> 
-      <h3>{props.subjectName}</h3>
-      <h3>{props.description}</h3>
-    </li>
+
+    <div id="deck-cover">
+      <div className="deck-cover-top-border"></div>
+      <div className="cover-subject">{(props.subjectName).toUpperCase()}</div>
+      <div className="cover-title">
+        <p>{props.name}</p>
+      </div>
+      <div className="cover-text">
+        <span>{props.description}</span>
+      </div>
+    </div>
+
   );
 }
+
