@@ -3,18 +3,35 @@ import './CreateCustomDeck.css'
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import CreateCard from './CreateCard';
+import axios from 'axios';
 
 export default function CreateCustomDeck(props) {
 
-  const [title, setTitle] = useState(props.name || "");
-  const [description, setDescription] = useState(props.name || "");
+  const [title, setTitle] = useState(props.title || "");
+  const [description, setDescription] = useState(props.description || "");
+  const [subject, setSubject] = useState(props.subject || "");
   const [error, setError] = useState("");
   const [display, setDisplay] = useState("");
 
+  const create = () => {
+    return axios
+      .post('/api/decks/', {
+        name: subject,
+        user_id: localStorage.id,
+        title: title,
+        description,
+        link: Math.random().toString(36).substr(2, 6)
+      })
+      .then(res => {
+        console.log("DECK ID:", res.data)
+      })
+      .catch(err => console.log(err))
+  }
 
   const reset = () => {
     setTitle("");
     setDescription("");
+    setSubject("");
     setError("");
   };
 
@@ -34,7 +51,7 @@ export default function CreateCustomDeck(props) {
     }
     setError("");
     setDisplay("show");
-    props.onSave(title, description);
+    create();
   }
 
   return (
@@ -60,8 +77,7 @@ export default function CreateCustomDeck(props) {
                   value={title}
                   onChange={event => setTitle(event.target.value)}
                 />
-              </form>
-              <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+
                 <input
                   className="deck-description-input"
                   name="description"
@@ -70,6 +86,15 @@ export default function CreateCustomDeck(props) {
                   value={description}
                   onChange={event => setDescription(event.target.value)}
                 />
+
+                <input
+                  className="deck-description-input"
+                  name="subject"
+                  type="text"
+                  placeholder="Name the subject"
+                  value={subject}
+                  onChange={event => setSubject(event.target.value)}
+                />
               </form>
               <section className="appointment__validation">{error}</section>
 
@@ -77,7 +102,7 @@ export default function CreateCustomDeck(props) {
             <div className="deck-details-bar-right">
               <section className="appointment__actions">
                 <button className="button-cancel" onClick={() => cancel()}>Cancel</button>
-                <button className="button-save" onClick={validate}> Next </button>
+                <button className="button-save" onClick={() => validate()}> Next </button>
               </section>
               {display && <div>Hello</div>}
 
