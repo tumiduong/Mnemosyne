@@ -15,7 +15,7 @@ export default function Navbar(props) {
             <span id="login-span">Log in</span>
           </button>
         </form>
-        <form className="btn-signup" method="GET" action="/signup">
+        <form className="btn-signup" method="GET" action="/register">
           <button type="submit" id="signup-button">
             <span id="signup-span">Sign up</span>
           </button>
