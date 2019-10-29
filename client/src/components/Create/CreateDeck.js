@@ -9,7 +9,7 @@ export default function CreateDeck(props) {
     <div>
       <Navbar />
       <div className="test">
-      <Sidenav />
+      <Sidenav selected="create"/>
 
         <div className="create-deck">
           <div className="create-custom-deck">
@@ -24,9 +24,7 @@ export default function CreateDeck(props) {
                   and let your creativity flow.
                 </span>
               </div>
-              <button type="submit" className="create-button">
-                <span id="signup-span">Create</span>
-              </button>
+              <a type="submit" className="create-custom-button" href="create/customdeck/" > Create </a>
             </div>
 
           </div>
@@ -42,9 +40,7 @@ export default function CreateDeck(props) {
                   and see the magic happen.
                 </span>
               </div>
-              <button type="submit" className="create-button">
-                <span id="signup-span">Create</span>
-              </button>
+              <a type="submit" className="create-english-button" href="create/englishdeck/" > Create</a>
             </div>
 
 

@@ -31,24 +31,52 @@
   border-radius: 20px;
 }
 
-button.create-button {
+a.create-custom-button {
   border-radius: 1em;
-  background-color: #27AE60;
+  background-color: #84E296;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-family: 'Red Hat Display';
   font-weight: 500;
-  padding: 0.5em;
   margin-right: 35%;
   margin-left: 35%;
   margin-bottom: 22%;
-  height: 2.2em;
-  transition: all 0.5s;
   cursor: pointer;
-  line-height: 0.5em;
+  padding: 0.2em;
+  text-decoration: none;
 }
+
+a.create-custom-button:hover {
+  border-radius: 1em;
+  background-color: #27AE60;
+}
+
+a.create-english-button {
+  border-radius: 1em;
+  background-color: #AFDEDC;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Red Hat Display';
+  font-weight: 500;
+  margin-right: 35%;
+  margin-left: 35%;
+  margin-bottom: 22%;
+  cursor: pointer;
+  padding: 0.2em;
+  text-decoration: none;
+}
+
+a.create-english-button:hover {
+  border-radius: 1em;
+  background-color: #77C7C3;
+}
+
+
+
 
 .deck-wrap-top-border {
   position: absolute;
@@ -102,3 +130,4 @@ div .explanation-title-english {
   font-weight: 700;
   color: #AFDEDC;
 }
+

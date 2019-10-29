@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreateDeck from './components/Create/CreateDeck';
+import CreateCustomDeck from './components/Create/CreateCustomDeck';
 import axios from "axios";
 import useApplicationData from './hooks/useApplicationData';
 import DeckList from './components/Learn/DeckList';
@@ -27,12 +28,11 @@ useEffect(() => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/create">
-          <CreateDeck />
-        </Route>
-        <Route exact path="/decks">
-          <DeckList deck={deck}/>
-        </Route>
+        <Route exact path="/create" component={CreateDeck} />
+        <Route exact path="/create/customdeck" component={CreateCustomDeck} />
+
+        <Route path="/users/:id/decks" component={DeckList} />
+        <Route path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route path="/cards">
           <Cards />
         </Route>
