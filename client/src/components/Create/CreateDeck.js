@@ -4,12 +4,12 @@ import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 
 export default function CreateDeck(props) {
-
+console.log(props.user[0])
   return (
     <div>
       <Navbar />
       <div className="test">
-      <Sidenav />
+      <Sidenav user={props.user[0]}/>
 
         <div className="create-deck">
           <div className="create-custom-deck">

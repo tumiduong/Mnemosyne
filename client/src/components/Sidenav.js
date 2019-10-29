@@ -13,7 +13,7 @@ export default function Sidenav(props) {
       </div>
       <div className="learn-div">
         <img src={require('../../../docs/learn-icon-white.png')} alt="mnemosyne-logo" className="icons" />
-        <a href="/users/1/decks">Learn</a>
+        <a href="/decks">Learn</a>
       </div>
       <div className="create-div">
         <img src={require('../../../docs/create-icon-white.png')} alt="mnemosyne-logo" className="icons" />

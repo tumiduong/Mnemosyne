@@ -10,16 +10,31 @@ import Login from './components/User/Login';
 
 
 function App() {
+const [user, setUser] = useState([]);
+const [deck, setDeck] = useState([]);
+const userID = localStorage.id;
 
+useEffect(() => {
+  const getDecks = axios.get(`/api/users/${userID}/decks`);
+  const getUser = axios.get(`/api/users/${userID}`);
+
+  Promise.all([getDecks, getUser])
+    .then(all => {
+      setDeck(all[0].data);
+      setUser(all[1].data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+}, []);
   
   return (
     <Router>
       <Switch>
         <Route exact path="/create">
-        <CreateDeck>
-        </CreateDeck>
+        <CreateDeck user={user} />
         </Route>
-        <Route path="/users/:id/decks" component={DeckList} />
+        <Route path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route path="/cards">
           <Cards />
         </Route>
