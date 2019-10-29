@@ -17,10 +17,14 @@ export default function Register() {
         password
       })
       .then(res => {
-        localStorage.setItem("id", res.data);
-        setRedirect(true);
+        if (res.data) {
+          localStorage.setItem("id", res.data);
+          setRedirect(true);
+        } else {
+          setError("Wrong combination of email/password.")
+        }
       })
-      .catch(err => console.log(err))
+      .catch(error => console.log(error))
   }
 
   function validate() {

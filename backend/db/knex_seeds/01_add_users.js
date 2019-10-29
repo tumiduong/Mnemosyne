@@ -10,7 +10,7 @@ exports.seed = function(knex) {
           first_name: 'Bill',
           last_name: 'Gates',
           email: 'test@test.com',
-          password: 'test',
+          password: '$2b$10$8ey67jAl9hdD5CEaxTlZdOwwl4mVww.WZQgm.H7KE44heXIS22DNm',
         },
       ]);
     }),

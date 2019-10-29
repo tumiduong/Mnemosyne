@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreateDeck from './components/Create/CreateDeck';
 import CreateCustomDeck from './components/Create/CreateCustomDeck';
 import axios from "axios";
@@ -11,7 +11,18 @@ import Login from './components/User/Login';
 
 
 function App() {
+const [deck, setDeck] = useState([]);
+const userID = localStorage.id;
 
+useEffect(() => {
+  axios.get(`/api/users/${userID}/decks`)
+    .then(res => {
+      setDeck(res.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}, []);
   
   return (
     <Router>
@@ -20,6 +31,7 @@ function App() {
         <Route exact path="/create/customdeck" component={CreateCustomDeck} />
 
         <Route path="/users/:id/decks" component={DeckList} />
+        <Route path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route path="/cards">
           <Cards />
         </Route>
