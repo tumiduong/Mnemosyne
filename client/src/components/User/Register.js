@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Navbar from '../Navbar';
+import './Register.css'
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -30,7 +32,7 @@ export default function Register() {
       setError("All fields must be filled.");
       return;
     }
-  
+
     setError("");
     register();
   }
@@ -42,47 +44,60 @@ export default function Register() {
   }
 
   return (
-    <div>
+    <div className="register-page">
       <div>{redirectRender()}</div>
-      
-      <div className="signup-form">
-        <form
-          onSubmit={event => event.preventDefault()}>
-            
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First name"
-            onChange={event => setFirstName(event.target.value)}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last name"
-            onChange={event => setLastName(event.target.value)}
-          />
-          <input
-            type="text"
-            name="email"
-            placeholder="Email address"
-            onChange={event => setEmail(event.target.value)}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={event => setPassword(event.target.value)}
-          />
+      <Navbar />
+      <div className="register-area">
+        <div className="register-form">
+          <div className="register-form-top-border">
+          </div>
+          <div className="form-wrapper">
+            <form className="form-inputs"
+              onSubmit={event => event.preventDefault()}>
 
-          <div className="error">{error}</div>
+              <div className="register-instructions">Please enter your credentials to <strong>sign up</strong>.</div>
 
-          <button
-            type="submit"
-            onClick={() => validate()}>
-            Sign up
+              <input
+                className="input-typing"
+                type="text"
+                name="firstName"
+                placeholder="First name"
+                onChange={event => setFirstName(event.target.value)}
+              />
+              <input
+                className="input-typing"
+                type="text"
+                name="lastName"
+                placeholder="Last name"
+                onChange={event => setLastName(event.target.value)}
+              />
+              <input
+                className="input-typing"
+                type="text"
+                name="email"
+                placeholder="Email address"
+                onChange={event => setEmail(event.target.value)}
+              />
+              <input
+                className="input-typing"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={event => setPassword(event.target.value)}
+              />
+
+              <div className="error">{error}</div>
+
+              <button
+                className="register-button"
+                type="submit"
+                onClick={() => validate()}>
+                Sign up
           </button>
-        </form>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-);
+  );
 }

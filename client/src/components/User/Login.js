@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Navbar from '../Navbar';
+import './Login.css';
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -26,7 +28,7 @@ export default function Register() {
       setError("All fields must be filled.");
       return;
     }
-  
+
     setError("");
     login();
   }
@@ -38,37 +40,54 @@ export default function Register() {
   }
 
   return (
-    <div>
+    <div className="login-page">
       <div>{redirectRender()}</div>
+      <Navbar />
+      <div className="login-area">
 
-      <div className="login-form">
-        <form
-          onSubmit={event => event.preventDefault()}>
+        <div className="login-form">
+          <div className="login-form-top-border">
+          </div>
+          <div className="form-wrapper">
+            <form  className="form-inputs"
+              onSubmit={event => event.preventDefault()}>
+                
+              <div className="login-instructions">Please enter your credentials to <strong>log in</strong>.</div>
 
-          <input
-            type="text"
-            name="email"
-            placeholder="Email address"
-            onChange={event => setEmail(event.target.value)}
-          />
+              <input
+                className="input-typing"
+                type="text"
+                name="email"
+                placeholder="Email address"
+                onChange={event => setEmail(event.target.value)}
+              />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={event => setPassword(event.target.value)}
-          />
-          
-          <div className="error">{error}</div>
+              <input
+                className="input-typing"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={event => setPassword(event.target.value)}
+              />
 
-          <button
-            variant="success"
-            type="submit"
-            onClick={() => validate()}>
-            Log in
-          </button>
-        </form>
+              <div className="error">{error}</div>
+
+              <button 
+                className="login-button"
+                variant="success"
+                type="submit"
+                onClick={() => validate()}>
+                Log in
+              </button>
+            </form>
+          </div>
+
+        </div>
       </div>
+
+
     </div>
-);
+  );
 }
+
+
