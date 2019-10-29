@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
 import CreateDeck from './components/Create/CreateDeck';
+import CreateCustomDeck from './components/Create/CreateCustomDeck';
 import axios from "axios";
 import useApplicationData from './hooks/useApplicationData';
 import DeckList from './components/Learn/DeckList';
@@ -15,10 +16,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/create">
-        <CreateDeck>
-        </CreateDeck>
-        </Route>
+        <Route exact path="/create" component={CreateDeck} />
+        <Route exact path="/create/customdeck" component={CreateCustomDeck} />
+
         <Route path="/users/:id/decks" component={DeckList} />
         <Route path="/cards">
           <Cards />

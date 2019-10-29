@@ -28,10 +28,6 @@
   padding: 0px 10px;
 }
 
-.learn-div {
-  display: flex;
-}
-
 .icons {
   padding-left: 1.5em;
   padding-top: 0.2em;
@@ -39,14 +35,22 @@
   height: 1.4em;
 }
 
+.learn-div {
+  display: flex;
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+}
+
 .create-div {
   display: flex;
   padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .practice-div {
   display: flex;
   padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .profile-div {
@@ -84,4 +88,8 @@ a#view-profile {
   padding: 0em;
   font-weight: 400;
   color: white;
+}
+
+.selected {
+  background-color: #27AE60;
 }

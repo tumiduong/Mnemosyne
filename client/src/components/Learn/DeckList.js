@@ -39,7 +39,7 @@ export default function DeckList(props) {
     <div>
       <Navbar />
       <div className="test">
-        <Sidenav />
+        <Sidenav selected="learn" />
         <div className="deck-list"> {decks} </div>
       </div>
     </div>
