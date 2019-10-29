@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Sidenav.css';
 import axios from 'axios';
 
-export default function Sidenav() {
+export default function Sidenav(props) {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState([]);
   const userID = localStorage.id;
