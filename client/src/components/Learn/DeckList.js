@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as useParams } from "react-router-dom";
+import React from "react";
 import './DeckList.css'
-import axios from 'axios';
 import DeckListItem from "./DeckListItem";
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';

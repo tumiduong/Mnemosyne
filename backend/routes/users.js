@@ -16,6 +16,21 @@ module.exports = knex => {
       });
   });
 
+    // selecting specific user
+  router.get('/:id', function(req, res, next) {
+    const { id } = req.params;
+    knex
+      .select('*')
+      .from('users')
+      .where({ id: id })
+      .then(result => {
+        res.json(result);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+
   // selecting specific user's decks
   router.get('/:id/decks', function(req, res, next) {
     const { id } = req.params;
@@ -42,7 +57,7 @@ module.exports = knex => {
         last_name: req.body.last_name,
         email: req.body.email,
         password: hashedPw}, ['id'])
-      .then(response => res.json(response[0].id))
+      .then(result => res.json(result[0].id))
       .catch(error => console.log(error))
   })
 
@@ -52,14 +67,19 @@ module.exports = knex => {
       .select('*')
       .from('users')
       .where({ email: req.body.email })
-      .then(response => {
-        const user = response[0];
+      .then(result => {
+        const user = result[0];
 
-        if (bcrypt.compareSync(req.body.password, user.password)) {
-          res.json(user.id);
+        if (user) {
+          if (bcrypt.compareSync(req.body.password, user.password)) {
+            res.json(user.id);
+          } else {
+            res.json(undefined);
+          }
         } else {
-          res.json(user.id);
+          res.json(undefined);
         }
+        
       })
       .catch(error => console.log(error))
   })
