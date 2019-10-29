@@ -32,7 +32,7 @@ useEffect(() => {
         <Route exact path="/create/customdeck" component={CreateCustomDeck} />
 
         <Route path="/users/:id/decks" component={DeckList} />
-        <Route path="/decks" component={() => <DeckList deck={deck}/>} />
+        <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route path="/cards">
           <Cards />
         </Route>
