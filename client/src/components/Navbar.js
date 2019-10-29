@@ -7,21 +7,24 @@ export default function Navbar(props) {
     localStorage.clear('id')
   }
 
-  const buttons = () => {
-    if (localStorage.id) {
-      return (
+  return (
+
+    <nav>
+      <div className="logo-wrap">
+        <img src={require('../../../docs/mnemosyne-logo.png')} alt="mnemosyne-logo" />
+      </div>
+      <div>
+        {localStorage.id && 
         <div className="button-wrap">
-        <form className="btn-login" method="GET" action="/create">
+          <form className="btn-login" method="GET" action="/create">
         <button type="submit" id="login-button" onClick={() => logout()}>
           <span id="login-span">Log out</span>
         </button>
         </form>
-        </div>
-      )
-    } else {
-      return (
+        </div>}
+        {!localStorage.id &&
         <div className="button-wrap">
-        <form className="btn-login" method="GET" action="/login">
+          <form className="btn-login" method="GET" action="/login">
         <button type="submit" id="login-button">
           <span id="login-span">Log in</span>
         </button>
@@ -31,20 +34,8 @@ export default function Navbar(props) {
           <span id="signup-span">Sign up</span>
         </button>
         </form>
-        </div>
-      )
-    }
-  }
-
-  return (
-
-    <nav>
-      <div className="logo-wrap">
-        <img src={require('../../../docs/mnemosyne-logo.png')} alt="mnemosyne-logo" />
-      </div>
-      <div>
-        {buttons()}
-      </div>   
+        </div>}
+      </div> 
     </nav>
 
   )

@@ -148,7 +148,7 @@ exports.seed = function(knex) {
         },
         {
           deck_id: 2,
-          term: 'Kinetic Energy/Volume(Dynamic Pressure)',
+          term: 'Kinetic Energy/Volume (Dynamic Pressure)',
           definition: 'The extra pressure that you would get if you stopped the motion of a flow.',
         },
         {

@@ -1,0 +1,85 @@
+.card-cover {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  margin-top: 6em;
+  margin-bottom: 6em;
+  height: 30em;
+  width: 18em;
+  position: relative;
+}
+
+.card-cover-top-border {
+  position: absolute;
+  width: 18em;
+  height: 2em;
+  background: #AFDEDC;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-back-top-border {
+  position: absolute;
+  width: 18em;
+  height: 2em;
+  background: #84E296;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-front {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+}
+
+.card-back {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  transform: rotateY(180deg);
+}
+
+div.card-term {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+  margin-right:10%;
+  margin-left:10%;
+  font-family: "Libre Baskerville";
+  font-size: 3em;
+  font-weight: 400;
+  color: #EAAF3C;
+  letter-spacing: 1px;
+
+}
+
+div.card-definition {
+  font-family: "Red Hat Display";
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #6D6986;
+  text-align: center;
+  margin-right:10%;
+  margin-left:10%;
+  padding: 0 2em 4em 2em;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-cover:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

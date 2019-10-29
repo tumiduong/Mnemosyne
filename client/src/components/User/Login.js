@@ -39,7 +39,7 @@ export default function Register() {
 
   const redirectRender = () => {
     if (redirect) {
-      return <Redirect to='/create' />
+      return <Redirect push to='/create' />
     }
   }
 

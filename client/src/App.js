@@ -7,6 +7,7 @@ import useApplicationData from './hooks/useApplicationData';
 import DeckList from './components/Learn/DeckList';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
+import CardList from './components/Learn/CardList'
 
 
 function App() {
@@ -27,14 +28,18 @@ useEffect(() => {
     <Router>
       <Switch>
         <Route exact path="/create">
-        <CreateDeck />
+          <CreateDeck />
         </Route>
-        <Route path="/decks" component={() => <DeckList deck={deck}/>} />
+        <Route exact path="/decks">
+          <DeckList deck={deck}/>
+        </Route>
         <Route path="/cards">
           <Cards />
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/decks/:deckID/cards" component={CardList}>
+        </Route>
 
       </Switch>
     
