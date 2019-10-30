@@ -13,12 +13,12 @@ export default function DeckListItem(props) {
 
   return (
 
-    <div id="deck-cover" onClick={() => {setRedirect(true)}}>
+    <div className="deck-cover" onClick={() => {setRedirect(true)}}>
       <div>{toCards(props.id)}</div>
       <div className="deck-cover-top-border"></div>
       <div className="cover-subject">{(props.subjectName).toUpperCase()}</div>
       <div className="cover-title">
-        <p>{props.name}</p>
+        {props.name}
       </div>
       <div className="cover-text">
         <span>{props.description}</span>

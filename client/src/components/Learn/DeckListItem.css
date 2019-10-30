@@ -1,23 +1,22 @@
-#deck-cover {
+.deck-cover {
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: space-between;
-  margin-top: 6em;
-  margin-bottom: 6em;
+  justify-content: start;
   background-color: #add8de;
   background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
   height: 40em;
-  width: 24em;
+  width: 27em;
+  margin-top:1.5em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 
 .deck-cover-top-border {
   position: absolute;
-  width: 24em;
+  width: 27em;
   height: 2em;
-  background: #AFDEDC;
+  background: #69C7C3;
   border-radius: 20px 20px 0px 0px;
 }
 
@@ -26,11 +25,14 @@ div .cover-subject {
   justify-content: center;
   text-align: center;
   margin-top: 20%;
+  margin-bottom: 15%;
   font-family: "Red Hat Display";
   font-size: 2em;
   font-weight: 700;
   color: white;
   letter-spacing: 2px;
+  user-select: none;
+
 }
 
 div .cover-title {
@@ -38,6 +40,7 @@ div .cover-title {
   justify-content: center;
   text-align: center;
   margin-top: 10%;
+  margin-bottom: 20%;
   margin-right:10%;
   margin-left:10%;
   font-family: "Libre Baskerville";
@@ -45,16 +48,35 @@ div .cover-title {
   font-weight: 400;
   color: #EAAF3C;
   letter-spacing: 1px;
-
+  user-select: none;
 }
 
 div .cover-text {
   font-family: "Red Hat Display";
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 400;
-  color: #6D6986;
+  color: #27AE60;
   text-align: center;
-  margin-right:10%;
-  margin-left:10%;
-  padding: 0 2em 4em 2em;
+  margin-right:15%;
+  margin-left:15%;
+  visibility: hidden;
+  user-select: none;
+}
+
+.deck-cover:hover div.cover-text {
+  visibility: visible;
+}
+
+.deck-cover:hover {
+  box-shadow: 0px 4px 4px #84E296;
+  background-color: #84E296;
+  background-image: none;
+}
+
+.deck-cover:hover .deck-cover-top-border {
+  background: #27AE60;
+}
+
+.deck-cover:hover .cover-title {
+  color: #27AE60;
 }
