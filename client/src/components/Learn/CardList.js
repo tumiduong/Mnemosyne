@@ -25,6 +25,7 @@ export default function CardList(props) {
       <CardListItem
         key={card.id}
         id={card.id}
+        image={card.image}
         term={card.term}
         definition={card.definition}
       />
@@ -41,5 +42,3 @@ export default function CardList(props) {
     </div>
   )
 }
-
-
