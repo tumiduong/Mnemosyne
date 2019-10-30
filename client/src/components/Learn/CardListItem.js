@@ -3,7 +3,7 @@ import './CardListItem.css'
 
 export default function CardListItem(props) {
 
-  let imgUrl = "https://i.ibb.co/sCkg5Lr/08-vickymonade.jpg";
+  let imgUrl = props.image;
 
   let divStyle = {
     backgroundImage: `url(${imgUrl})`,
