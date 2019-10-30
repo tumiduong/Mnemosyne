@@ -3,7 +3,20 @@ import './CardListItem.css'
 
 export default function CardListItem(props) {
 
+  let imgUrl = "https://i.ibb.co/sCkg5Lr/08-vickymonade.jpg";
 
+  let divStyle = {
+    backgroundImage: `url(${imgUrl})`,
+    width: '100%',
+    height: '100%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition:'center',
+    borderRadius: '0px 0px 20px 20px'
+
+  };
+  
+ 
   return (
 
     <div className="card-cover">
@@ -20,6 +33,8 @@ export default function CardListItem(props) {
           <div className="card-back-top-border"></div>
           <div className="card-definition">
             <p>{props.definition}</p>
+          </div>
+          <div style={divStyle}>
           </div>
         </div>
       </div>
