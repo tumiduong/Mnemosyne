@@ -1,13 +1,27 @@
-.form-wrap {
+.create-card-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.create-form-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
   padding: 2em;
 }
 
+.create-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
 .term-form {
-  display: flex;
   padding-bottom: 2em;
 }
 
-.term-lookup-left {
+.term-lookup {
   display: flex;
   flex-direction: column;
 }
@@ -16,25 +30,11 @@
   display: flex;
 }
 
-.definition-lookup-left {
+.definition-lookup{
   display: flex;
   flex-direction: column;
-
 }
 
-.term-lookup-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: 2em;
-}
-
-.definition-lookup-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: 2em;
-}
 
 .create-card {
   margin-top: 1em;
@@ -43,3 +43,53 @@
 #lookup {
   cursor: pointer;
 }
+
+.term-input {
+  resize: none;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  width: 15em;
+	border: 1px solid #cccccc;
+	padding: 5px;
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  border-radius: 0.7em;
+  
+}
+
+.definition-input {
+  resize: none;
+  width: 15em;
+	height: 12em;
+  border: 1px solid #cccccc;
+  margin-top: 1em;
+  margin-bottom: 2em;
+	padding: 5px;
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  border-radius: 1em;
+}
+
+#fetch-checkbox {
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  color: #6D6986;
+}
+
+.title {
+  font-family: "Red Hat Display";
+  font-size: 2em;
+  font-weight: 600;
+  color: #6D6986;
+}
+
+.card-preview-wrap {
+  padding: 2em;
+}
+
+#fetch-question {
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  color: #6D6986;
+}
+
