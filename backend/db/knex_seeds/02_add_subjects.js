@@ -27,6 +27,9 @@ exports.seed = function(knex) {
         {
           name: 'Architecture',
         },
+        {
+          name: 'Cosmetics',
+        },
       ]);
     }),
   ]);

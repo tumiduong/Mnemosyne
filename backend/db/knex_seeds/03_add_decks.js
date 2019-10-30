@@ -27,6 +27,13 @@ exports.seed = function(knex) {
           description: 'Understanding the 11 organ systems in the human body.',
           link: 'vrWKVu',
         },
+        {
+          user_id: 1,
+          subject_id: 8,
+          name: 'Skincare Ingredients',
+          description: 'Learning ingredients commonly used in skincare and their benefits.',
+          link: 'vrWKVu',
+        },
       ]);
     }),
   ]);
