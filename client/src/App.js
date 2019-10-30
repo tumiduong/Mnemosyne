@@ -9,6 +9,8 @@ import DeckList from './components/Learn/DeckList';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
 import CardList from './components/Learn/CardList'
+import CreateEngDeck from './components/Create/CreateEngDeck';
+import EditDeck from './components/Create/EditDeck';
 
 
 function App() {
@@ -30,16 +32,15 @@ useEffect(() => {
       <Switch>
         <Route exact path="/create" component={CreateDeck} />
         <Route exact path="/create/customdeck" component={CreateCustomDeck} />
-
-        <Route path="/users/:id/decks" component={DeckList} />
         <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route path="/cards">
           <Cards />
         </Route>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/decks/:deckID/cards" component={CardList}>
-        </Route>
+        <Route path="/decks/:deckID/cards" component={CardList} />
+        <Route exact path="/create/eng" component={CreateEngDeck} />
+        <Route exact path="/edit/deck/:deckID" component={EditDeck} />
 
       </Switch>
     

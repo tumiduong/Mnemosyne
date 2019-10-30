@@ -15,9 +15,42 @@ module.exports = knex => {
       });
   });
 
+  router.get('/:id', function(req, res, next) {
+    const { id } = req.params;
+
+    knex
+      .select('decks.*', 'subjects.name as subject_name')
+      .from('decks')
+      .innerJoin('subjects', 'decks.subject_id', 'subjects.id')
+      .where('decks.id', id)
+      .then(result => {
+        res.json(result[0]);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+
+  // get deck by set link
+  // if visited in react router Redirect to id? or !! render cards !!
+  router.get('/:link', function(req, res, next) {
+    const { link } = req.params;
+    knex
+      .select('*')
+      .from('decks')
+      .where({ link: link })
+      .then(result => {
+        res.json(result[0]);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+
   // showing all cards in deck
   router.get('/:id/cards', function(req, res, next) {
     const { id } = req.params;
+
     knex
       .select('cards.*')
       .from('cards')
@@ -54,7 +87,7 @@ module.exports = knex => {
       });
   });
 
-  //delete specific deck
+  // delete specific deck
   router.post('/delete/:id', function(req, res, next) {
     const { id } = req.params;
     knex
@@ -69,6 +102,22 @@ module.exports = knex => {
       console.log(error);
     });
   })
+
+  // create cards in deck
+  router.post('/:id/cards', function(req, res, next) {
+
+    knex('cards').insert({
+        deck_id: req.body.deck_id,
+        term: req.body.term,
+        definition: req.body.definition,
+        image: req.body.image}, ['id'])
+      .then(result => {
+        res.json(result);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
 
   return router;
 };
