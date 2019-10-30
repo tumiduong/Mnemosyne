@@ -1,0 +1,45 @@
+.form-wrap {
+  padding: 2em;
+}
+
+.term-form {
+  display: flex;
+  padding-bottom: 2em;
+}
+
+.term-lookup-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.definition-form {
+  display: flex;
+}
+
+.definition-lookup-left {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.term-lookup-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 2em;
+}
+
+.definition-lookup-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 2em;
+}
+
+.create-card {
+  margin-top: 1em;
+}
+
+#lookup {
+  cursor: pointer;
+}

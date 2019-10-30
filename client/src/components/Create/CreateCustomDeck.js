@@ -104,16 +104,15 @@ export default function CreateCustomDeck(props) {
                 <button className="button-cancel" onClick={() => cancel()}>Cancel</button>
                 <button className="button-save" onClick={() => validate()}> Next </button>
               </section>
-              {display && <div>Hello</div>}
-
-
             </div>
 
           </div>
+          <CreateCard/>
 
 
 
         </div>
+        
 
       </div>
     </div>
