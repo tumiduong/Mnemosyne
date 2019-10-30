@@ -161,6 +161,80 @@ exports.seed = function(knex) {
           term: 'Control Volume',
           definition: 'Volume in space of special interest for particular analysis. The surface of the control volume is referred as a control surface and is a closed surface. The surface is defined with relative to a coordinate system that may be fixed, moving or rotating.',
         },
+        {
+          deck_id: 4,
+          term: 'Vitamin C',
+          definition: 'A potent antioxidant that can neutralize free radicals. Also a brightening agent that helps reduce dark spots.',
+          image: 'https://images.unsplash.com/photo-1476523165843-79f78d654922?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800'
+        },
+        {
+          deck_id: 4,
+          term: 'Glycolic Acid',
+          definition: 'Most commonly derived from sugar cane, this natural exfoliant helps loosen dead skin cells at the top layer to reveal newer, brighter skin. Works in deeper layers to boost collagen production.',
+        },
+        {
+          deck_id: 4,
+          term: 'Retinol',
+          definition: 'Increases the rate of cell turnover and boosts collagen. Derived from Vitamin A.',
+        },
+        {
+          deck_id: 4,
+          term: 'Squalane',
+          definition: "Emollient most commonly derived from olives and sugar cane. Similar to our own naturally produced oil, therefore compatible with most skin types.",
+          image: 'https://images.unsplash.com/photo-1534099946341-34fe5ef39eef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+        },
+        {
+          deck_id: 4,
+          term: 'Salicylic Acid',
+          definition: 'Penetrates the skin to dissolve debris that clogs pores, helping to clear blackheads and whiteheads. Derived from willow bark.',
+        },
+        {
+          deck_id: 4,
+          term: 'Benzoyl Peroxide',
+          definition: 'Commonly used to treat inflammatory acne. Works to treat and prevent acne by killing bacteria underneath the skin.',
+        },
+        {
+          deck_id: 4,
+          term: 'Hydroquinone',
+          definition: 'OTC skin lightening agent to treat hyperpigmentation.',
+        },
+        {
+          deck_id: 4,
+          term: 'Hyaluronic Acid',
+          definition: 'Penetrates skin to help hydrate by retaining moisture, and drawing in moisture from your surroundings.',
+        },
+        {
+          deck_id: 4,
+          term: 'Copper Peptides',
+          definition: "Antioxidant, and promotes skin's collagen and elastin production.",
+        },
+        {
+          deck_id: 4,
+          term: 'Niacinamide',
+          definition: 'Form of Vitamin B. Helps to improve enlarged pores, uneven skin tone, and dullness.',
+        },
+        {
+          deck_id: 4,
+          term: 'Ceramide',
+          definition: 'Reinforce skin barrier, plumps skin, and reduce lines and wrinkles. Naturally found in top layers of skin as well.',
+        },
+        {
+          deck_id: 4,
+          term: 'Aloe',
+          definition: 'Plant derived. Most commonly used to hydrate, heal, and soothe irritated skin.',
+          image: 'https://images.unsplash.com/photo-1501597392671-6eee5525a294?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'
+        },
+        {
+          deck_id: 4,
+          term: 'Caffeine',
+          definition: 'Soothes skin and fights inflammation. Commonly used to boost cirulation to help depuff and reduce dark circles around the eyes.',
+          image: 'https://images.unsplash.com/photo-1414808549009-35951c724e9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+        },
+        {
+          deck_id: 4,
+          term: 'Titanium Oxide',
+          definition: 'Common mineral used for natural sunscreen. Good for sensitive skin.',
+        },
       ]);
     }),
   ]);
