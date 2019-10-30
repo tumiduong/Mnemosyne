@@ -35,7 +35,7 @@ export default function CardList(props) {
     <div>
       <Navbar />
       <div className="test">
-        <Sidenav />
+        <Sidenav selected="learn"/>
         <div className="card-list"> {cards} </div>
       </div>
     </div>
