@@ -7,3 +7,44 @@
   padding: 3em;
   grid-gap: 3em;
 }
+
+.deck-big-wrap {
+  display: grid;
+  min-height: 900px;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+
+.deck-edit-bar {
+  background-color: #DBE1EC;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2em;
+
+}
+
+.deck-edit-bar-info {
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+.deck-edit-bar-info-light {
+  font-family: "Red Hat Display";
+  margin-left: 0.2em;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+.deck-edit-button {
+  font-family: "Red Hat Display";
+  margin-left: 0.5em;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #6D6986;
+  text-decoration: underline;
+  cursor: pointer;
+}

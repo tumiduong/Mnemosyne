@@ -3,7 +3,9 @@ import './CardListItem.css'
 
 export default function CardListItem(props) {
 
-  let imgUrl = props.image;
+  let imgUrl = "'https://source.unsplash.com/featured/?house'";
+
+  
 
   let divStyle = {
     backgroundImage: `url(${imgUrl})`,

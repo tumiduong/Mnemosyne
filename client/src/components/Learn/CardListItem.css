@@ -1,3 +1,7 @@
+.big-wrap {
+  display: block;
+  align-items: center;
+}
 .card-cover {
   display: flex;
   flex-direction: column;
@@ -60,11 +64,11 @@ div.card-definition {
   font-size: 1.2em;
   font-weight: 400;
   color: #6D6986;
-  text-align: center;
-  margin-right:6%;
-  margin-left:6%;
-  margin-top:30%;
-  padding: 0 2em 4em 2em;
+  text-align: justify;
+  /* margin-right:6%;
+  margin-left:%; */
+  margin-top: 4em;
+  padding: 0 2em 2em 2em;
   user-select: none;
 
 }
@@ -88,4 +92,23 @@ div.card-definition {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.delete-button {
+  text-align: center;
+  margin-top: 2em;
+  background-color: #EB5757;
+  height: 2em;
+  padding-top: 0.7em;
+  border-radius: 1.5em;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 1.3em;
+  color: white;
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
+.delete-button:hover {
+  background-color: red;
 }
