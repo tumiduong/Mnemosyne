@@ -3,7 +3,7 @@ import './CardListItem.css'
 
 export default function CardListItem(props) {
 
-  let imgUrl = "'https://source.unsplash.com/featured/?house'";
+  let imgUrl = props.image;
 
   
 
