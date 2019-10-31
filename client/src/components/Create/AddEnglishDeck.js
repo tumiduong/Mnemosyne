@@ -5,11 +5,23 @@ import Sidenav from '../Sidenav';
 import EnglishCards from './EnglishCards';
 import axios from 'axios';
 
+
 export default function AddEnglishDeck(props) {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
+  const [count, setCount] =useState("");
+
+  const countCards = () => {
+    return axios.get(`/api/decks/${deckID}/cardcount`)
+      .then(res => {
+        setCount(res.data.card_count);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   const { deckID } = props.match.params;
 
@@ -25,6 +37,8 @@ export default function AddEnglishDeck(props) {
       })
   }, []);
 
+  const pathName = `/decks/${deckID}/cards`
+
   return (
     <div>
       <Navbar />
@@ -33,20 +47,29 @@ export default function AddEnglishDeck(props) {
 
         <div className="custom-deck-creation">
           <div className="info-bar">
-            <span className="info">You are now creating an English deck.</span>
-            <span className="info-else">Wanted to create a custom deck?</span>
-            <a className="info-else-click" href="/create/customdeck">Click here</a>
+            <span className="info">You are now editing your {title} deck.</span>
+            <span className="info-else"> Done editing?</span>
+            <a className="info-else-click" href={pathName}>Save and learn</a>
           </div>
-          <div className="deck-details-bar">
-            <div className="deck-details-bar-left">
+          <div className="the-deck-bar">
+            <div className="deck-bar-left">
+
+              <span className="deck-subject">{subject.toUpperCase()}</span>
+              <span className="deck-title">{title}</span>
+              <span className="deck-description">{description}</span>
               
-              <span>{title}</span>
-              <span>{description}</span>
-              <span>{subject}</span>
 
             </div>
+            <div className="deck-bar-right">
+              <div className="deck-card-number-container">
+              <img src ={require('../../../../docs/card-icon.png')} id="card-icon"/>
+              <div id="centered-number">15</div>
+              </div>
+              <span id="card-number">You have 0 cards in your deck.</span>
+              
+            </div>
           </div>
-          <EnglishCards deckID={deckID}/>
+          <EnglishCards countCards={countCards()} deckID={deckID}/>
 
 
 
