@@ -27,6 +27,7 @@ export default function DeckList(props) {
         subjectName={deck.subject_name}
         onClick={deck.toCards}
         display={display}
+        mode={"learn"}
         onDelete={deck.remove}
       />
     );

@@ -6,21 +6,27 @@ import axios from "axios";
 export default function DeckListItem(props) {
   const [redirect, setRedirect] = useState(false);
 
+
+
   const toCards = (id) => {
-    if (redirect) {
+
+    if (props.mode === "practice" && redirect) {
+      return <Redirect push to={{ pathname: `/practice/${id}` }} />
+    } else if (props.mode === "learn" && redirect) {
       return <Redirect push to={{ pathname: `/decks/${id}/cards` }} />
     }
   }
 
+
   const remove = (id) => {
     return axios.post(`/api/decks/delete/${id}`)
-            .then(res => {
-              console.log("Successfully deleted.")
-              document.location.reload(true)
-            })
-            .catch(err => {
-              console.log(err);
-            })
+      .then(res => {
+        console.log("Successfully deleted.")
+        document.location.reload(true)
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (

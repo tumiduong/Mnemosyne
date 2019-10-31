@@ -11,6 +11,8 @@ import CardList from './components/Learn/CardList'
 import CreateEnglishDeck from './components/Create/CreateEnglishDeck';
 import AddEnglishDeck from './components/Create/AddEnglishDeck';
 import AddCustomDeck from './components/Create/AddCustomDeck';
+import Practice from './components/Practice/Practice';
+import PracticeDeck from './components/Practice/PracticeDeck';
 
 function App() {
 const [deck, setDeck] = useState([]);
@@ -40,6 +42,8 @@ useEffect(() => {
 
         <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route exact path="/decks/:deckID/cards" component={CardList} />
+        <Route exact path="/practice/" component={Practice} />
+        <Route exact path="/practice/:deckID" component={PracticeDeck} />
       </Switch>
   </Router>
   );
