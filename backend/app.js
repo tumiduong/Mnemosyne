@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const decksRouter = require('./routes/decks');
 const cardsRouter = require('./routes/cards');
 const subjectsRouter = require('./routes/subjects');
+const roundsRouter = require('./routes/rounds');
 const app = express();
 
 // view engine setup
@@ -29,6 +30,7 @@ app.use('/api/users', usersRouter(knex));
 app.use('/api/decks', decksRouter(knex));
 app.use('/api/cards', cardsRouter(knex));
 app.use('/api/subjects', subjectsRouter(knex));
+app.use('/api/rounds', roundsRouter(knex));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
