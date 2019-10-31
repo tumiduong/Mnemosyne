@@ -11,6 +11,7 @@ import CardList from './components/Learn/CardList'
 import CreateEnglishDeck from './components/Create/CreateEnglishDeck';
 import AddEnglishDeck from './components/Create/AddEnglishDeck';
 import AddCustomDeck from './components/Create/AddCustomDeck';
+import SharedCardList from './components/Learn/SharedCardList';
 
 function App() {
 const [deck, setDeck] = useState([]);
@@ -40,6 +41,7 @@ useEffect(() => {
 
         <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route exact path="/decks/:deckID/cards" component={CardList} />
+        <Route exact path="/:link" component={SharedCardList} />
       </Switch>
   </Router>
   );
