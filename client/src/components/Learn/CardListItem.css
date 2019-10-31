@@ -64,9 +64,10 @@ div.card-definition {
   font-size: 1.2em;
   font-weight: 400;
   color: #6D6986;
-  text-align: justify;
+  text-align: left;
   /* margin-right:6%;
   margin-left:%; */
+  word-wrap: break-word;
   margin-top: 4em;
   padding: 0 2em 2em 2em;
   user-select: none;
