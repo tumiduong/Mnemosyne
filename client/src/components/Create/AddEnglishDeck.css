@@ -24,7 +24,7 @@
 
 .info-else {
   font-family: "Red Hat Display";
-  margin-left: 0.8em;
+  margin-left: 0.5em;
   font-size: 1.5em;
   font-weight: 400;
   color: #6D6986;
@@ -32,7 +32,7 @@
 
 .info-else-click {
   font-family: "Red Hat Display";
-  margin-left: 5px;
+  margin-left: 0.5em;
   font-size: 1.5em;
   font-weight: 400;
   color: #6D6986;
@@ -40,16 +40,19 @@
   cursor: pointer;
 }
 
-.deck-details-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 40%;
+.info-else-click:hover {
+  color: #27AE60;
+  font-weight: 700;
+}
+
+.the-deck-bar {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   background-color: #EFF2F8;
   padding: 2em;
 }
 
-.deck-details-bar-left {
+.deck-bar-left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,11 +91,9 @@ form {
   width: 100%;
 }
 
-.deck-details-bar-right {
+.deck-bar-right {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+  grid-template-columns: 1fr 5fr;
 }
 
 .button-cancel {
@@ -113,20 +114,77 @@ form {
   line-height: 0.5em;
   }
 
-  .button-save {
-    border-radius: 1em;
-    background-color: #84E296;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 1.2em;
-    font-family: 'Red Hat Display';
-    font-weight: 700;
-    padding: 0.5em;
-    width: 6em;
-    height: 2em;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-right: 2em;
-    line-height: 0.5em;
-    }
+  
+.button-save {
+  border-radius: 1em;
+  background-color: #84E296;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Red Hat Display';
+  font-weight: 700;
+  padding: 0.5em;
+  width: 6em;
+  height: 2em;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-right: 2em;
+  line-height: 0.5em;
+}
+
+.deck-subject {
+  font-family: "Red Hat Display";
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  color:  #91C7A6;
+  letter-spacing: 1px;
+
+}
+
+.deck-title {
+  font-family: "Red Hat Display";
+  font-size: 1.7em;
+  font-weight: 700;
+  color: #6D6986;
+  margin-bottom: 0.2em;
+}
+
+.deck-description {
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+.deck-card-number-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+#card-icon {
+  width: 6em;
+}
+
+#card-number {
+  margin-top: 1em;
+  margin-left: 1em;
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+#centered-number {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 2px;
+}
