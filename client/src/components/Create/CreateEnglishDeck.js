@@ -11,10 +11,9 @@ export default function CreateEnglishDeck(props) {
   const [description, setDescription] = useState(props.description || "");
   const [subject, setSubject] = useState(props.subject || "");
   const [error, setError] = useState("");
-  const [display, setDisplay] = useState("");
-  const [redirect, setRedirect] = useState(false);
-  const [deckID, setDeckID] = useState("")
-;
+  const [redirect, setRedirect] = useState("");
+  const [deckID, setDeckID] = useState("");
+
   const create = () => {
     return axios
       .post('/api/decks/', {
@@ -26,21 +25,13 @@ export default function CreateEnglishDeck(props) {
       })
       .then(res => {
         setDeckID(res.data);
-        setRedirect(true);
+        setRedirect("forward");
       })
       .catch(err => console.log(err))
   }
 
-  const reset = () => {
-    setTitle("");
-    setDescription("");
-    setSubject("");
-    setError("");
-  };
-
   const cancel = () => {
-    reset();
-    setDisplay("");
+    setRedirect("back");
   };
 
   const validate = () => {
@@ -53,13 +44,15 @@ export default function CreateEnglishDeck(props) {
       return;
     }
     setError("");
-    setDisplay("show");
     create();
   }
 
   const redirectRender = () => {
-    if (redirect) {
-      return <Redirect push to={{ pathname: `/edit/deck/${deckID}` }} />
+    if (redirect === "forward") {
+      return <Redirect push to={{ pathname: `/edit/deck/${deckID}/english` }} />
+    }
+    if (redirect === "back") {
+      return <Redirect push to={{ pathname: `/create` }} />
     }
   }
 

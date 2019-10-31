@@ -1,29 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import './CreateCard.css';
+import './CustomCards.css';
 import axios from 'axios';
 import CardListItem from '../Learn/CardListItem';
 
-export default function CreateCard(props) {
+export default function CustomCards(props) {
 
   const [term, setTerm] = useState("");
   const [definition, setDefinition] = useState("");
+  const [image, setImage] = useState("")
+  const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
+  const deckID = props.deckID;
 
+  const create = () => {
+    return axios.post(`/api/decks/${deckID}/cards`, {
+      deck_id: deckID,
+      term: term,
+      definition: definition,
+      image: image
+    }, ['id'])
+    .then(result => {
+      setTerm("");
+      setDefinition("");
+      setImage("");
+      confirmAdd();
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
 
-  const searchTerm = () => {
-    return axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${term}?key=b2474d1c-a3fd-47bd-9b37-e2fc58547a29`)
-      .then(res => {
-        const definition = res.data[0].shortdef[0];
-        setDefinition(definition);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  };
+  const imageFetch = () => {
+    if (checked) {
+      return axios.get(`https://api.unsplash.com/photos/random/?client_id=7b748622f472d0c2ef812b3ff212ea3fe883f7f939a06a62b40faf3f3f0ca21a&count=1&query=${term}`)
+        .then(res => {
+          setImage(res.data[0].urls.regular)
+        })
+        .catch(error => error ? setMessage("Sorry. Could not find a related photo.") : console.log(error))
+    }
 
+    if (!checked) {
+      setImage("");
+    }
+  }
 
+  const confirmAdd = () => {
+    setMessage("Card added! Add another if you'd like.")
+  }
 
-
+  const validate = () => {
+    if (term === "") {
+      setMessage("Term cannot be blank.");
+      return;
+    }
+    if (definition === "") {
+      setMessage("Definition cannot be blank.");
+      return;
+    }
+    setMessage("");
+    create();
+  }
 
   return (
     <div className="create-card-wrap" >
@@ -45,7 +81,7 @@ export default function CreateCard(props) {
                 <span id="fetch-question"> Fetch a related visual from Unsplash </span>
               </div>
             </div>
-            <div id="lookup" onClick={() => searchTerm()} >
+            <div id="lookup" onClick={() => imageFetch()} >
               <a >Search</a>
             </div>
           </div>
@@ -70,14 +106,16 @@ export default function CreateCard(props) {
           </div>
 
         </form>
-        <div id="save-card"> <a>Save Card</a> </div>
+        <div id="save-card" onClick={() => validate()}> <a>Save Card</a> </div>
+        <div>{message}</div>
         
       </div >
       <div className="card-preview-wrap">
       <span className="title">CARD PREVIEW</span>
       <CardListItem
          term={term}
-         definition={definition}     
+         definition={definition}
+         image={image}   
       />
       </div>
       

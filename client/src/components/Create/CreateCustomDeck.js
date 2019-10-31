@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import './CreateCustomDeck.css'
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
-import CreateCard from './CreateCard';
 import axios from 'axios';
 
 export default function CreateCustomDeck(props) {
@@ -11,7 +11,8 @@ export default function CreateCustomDeck(props) {
   const [description, setDescription] = useState(props.description || "");
   const [subject, setSubject] = useState(props.subject || "");
   const [error, setError] = useState("");
-  const [display, setDisplay] = useState("");
+  const [redirect, setRedirect] = useState("");
+  const [deckID, setDeckID] = useState("")
 
   const create = () => {
     return axios
@@ -23,21 +24,14 @@ export default function CreateCustomDeck(props) {
         link: Math.random().toString(36).substr(2, 6)
       })
       .then(res => {
-        console.log("DECK ID:", res.data)
+        setDeckID(res.data);
+        setRedirect("forward");
       })
       .catch(err => console.log(err))
   }
 
-  const reset = () => {
-    setTitle("");
-    setDescription("");
-    setSubject("");
-    setError("");
-  };
-
   const cancel = () => {
-    reset();
-    setDisplay("");
+    setRedirect("back");
   };
 
   const validate = () => {
@@ -50,12 +44,21 @@ export default function CreateCustomDeck(props) {
       return;
     }
     setError("");
-    setDisplay("show");
     create();
+  }
+
+  const redirectRender = () => {
+    if (redirect === "forward") {
+      return <Redirect push to={{ pathname: `/edit/deck/${deckID}/custom` }} />
+    }
+    if (redirect === "back") {
+      return <Redirect push to={{ pathname: `/create` }} />
+    }
   }
 
   return (
     <div>
+      <div>{redirectRender()}</div>
       <Navbar />
       <div className="test">
         <Sidenav selected="create" />
@@ -107,7 +110,6 @@ export default function CreateCustomDeck(props) {
             </div>
 
           </div>
-          <CreateCard/>
 
 
 

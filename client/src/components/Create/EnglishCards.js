@@ -22,6 +22,7 @@ export default function EnglishCards(props) {
     .then(result => {
       setTerm("");
       setDefinition("");
+      setImage("");
       confirmAdd();
     })
     .catch(error => {
@@ -30,10 +31,17 @@ export default function EnglishCards(props) {
   }
 
   const imageFetch = () => {
-    return axios.get(`https://api.unsplash.com/photos/random/?client_id=7b748622f472d0c2ef812b3ff212ea3fe883f7f939a06a62b40faf3f3f0ca21a&count=1&query=${term}`)
-      .then(res => {
-        setImage(res.data[0].urls.regular)
-    })
+    if (checked) {
+      return axios.get(`https://api.unsplash.com/photos/random/?client_id=7b748622f472d0c2ef812b3ff212ea3fe883f7f939a06a62b40faf3f3f0ca21a&count=1&query=${term}`)
+        .then(res => {
+          setImage(res.data[0].urls.regular)
+        })
+        .catch(error => error ? setMessage("Sorry. Could not find a related photo.") : console.log(error))
+    }
+
+    if (!checked) {
+      setImage("");
+    }
   }
 
   const searchTerm = () => {
@@ -43,9 +51,7 @@ export default function EnglishCards(props) {
         setDefinition(definition);
         imageFetch();
       })
-      .catch(function (error) {
-        console.log(error);
-      })
+      .catch(error => error ? setMessage("Sorry. Could not find a definition.") : console.log(error))
   };
 
   const confirmAdd = () => {
@@ -54,11 +60,11 @@ export default function EnglishCards(props) {
 
   const validate = () => {
     if (term === "") {
-      setMessage("Term cannot be blank");
+      setMessage("Term cannot be blank.");
       return;
     }
     if (definition === "") {
-      setMessage("Definition cannot be blank");
+      setMessage("Definition cannot be blank.");
       return;
     }
     setMessage("");
