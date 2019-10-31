@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './CreateCustomDeck.css'
+import './AddEnglishDeck.css'
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
-import MakeCards from './MakeCards';
+import EnglishCards from './EnglishCards';
 import axios from 'axios';
 
-export default function CreateCustomDeck(props) {
+export default function AddEnglishDeck(props) {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
-  const [error, setError] = useState("");
-  const [display, setDisplay] = useState("");
 
   const { deckID } = props.match.params;
 
@@ -35,9 +33,9 @@ export default function CreateCustomDeck(props) {
 
         <div className="custom-deck-creation">
           <div className="info-bar">
-            <span className="info">You are now creating a custom deck.</span>
-            <span className="info-else">Wanted to create a deck for English practice?</span>
-            <a className="info-else-click" href="/create/englishdeck">Click here</a>
+            <span className="info">You are now creating an English deck.</span>
+            <span className="info-else">Wanted to create a custom deck?</span>
+            <a className="info-else-click" href="/create/customdeck">Click here</a>
           </div>
           <div className="deck-details-bar">
             <div className="deck-details-bar-left">
@@ -48,7 +46,7 @@ export default function CreateCustomDeck(props) {
 
             </div>
           </div>
-          <MakeCards deckID={deckID}/>
+          <EnglishCards deckID={deckID}/>
 
 
 

@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import './CreateCustomDeck.css'
+import './CreateEnglishDeck.css'
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
-import CreateCard from './CreateCard';
 import axios from 'axios';
 
-export default function CreateCustomDeck(props) {
+export default function CreateEnglishDeck(props) {
 
   const [title, setTitle] = useState(props.title || "");
   const [description, setDescription] = useState(props.description || "");
@@ -73,9 +72,9 @@ export default function CreateCustomDeck(props) {
 
         <div className="custom-deck-creation">
           <div className="info-bar">
-            <span className="info">You are now creating a custom deck.</span>
-            <span className="info-else">Wanted to create a deck for English practice?</span>
-            <a className="info-else-click" href="/create/englishdeck">Click here</a>
+            <span className="info">You are now creating an English deck.</span>
+            <span className="info-else">Wanted to create a custom deck?</span>
+            <a className="info-else-click" href="/create/customdeck">Click here</a>
           </div>
           <div className="deck-details-bar">
             <div className="deck-details-bar-left">

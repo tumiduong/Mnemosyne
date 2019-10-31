@@ -24,7 +24,7 @@ export default function CreateDeck(props) {
                   and let your creativity flow.
                 </span>
               </div>
-              <a type="submit" className="create-custom-button" href="create/customdeck/" > Create </a>
+              <a type="submit" className="create-custom-button" href="/create/customdeck/" > Create </a>
             </div>
 
           </div>
@@ -40,7 +40,7 @@ export default function CreateDeck(props) {
                   and see the magic happen.
                 </span>
               </div>
-              <a type="submit" className="create-english-button" href="create/englishdeck/" > Create</a>
+              <a type="submit" className="create-english-button" href="/create/englishdeck/" > Create</a>
             </div>
 
 
