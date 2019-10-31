@@ -17,14 +17,20 @@ module.exports = knex => {
 
   router.get('/:id', function(req, res, next) {
     const { id } = req.params;
-
-    knex
+    Promise.all([
+      knex
       .select('decks.*', 'subjects.name as subject_name')
       .from('decks')
       .innerJoin('subjects', 'decks.subject_id', 'subjects.id')
-      .where('decks.id', id)
+      .where('decks.id', id), 
+      knex('cards') 
+        .count('id as card_count')
+        .where('deck_id', id) 
+    ])  
       .then(result => {
-        res.json(result[0]);
+        const deckInfo = result[0][0]
+        const final = { ...deckInfo, card_count: result[1][0].card_count}
+        res.json(final);
       })
       .catch(error => {
         console.log(error);

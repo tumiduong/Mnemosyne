@@ -14,7 +14,7 @@ export default function AddEnglishDeck(props) {
   const [count, setCount] =useState("");
 
   const countCards = () => {
-    return axios.get(`/api/decks/${deckID}/cardcount`)
+    return axios.get(`/api/decks/${deckID}`)
       .then(res => {
         setCount(res.data.card_count);
       })
@@ -31,6 +31,7 @@ export default function AddEnglishDeck(props) {
         setTitle(res.data.name);
         setDescription(res.data.description);
         setSubject(res.data.subject_name);
+        setCount(res.data.card_count);
       })
       .catch(error => {
         console.log(error);
@@ -63,13 +64,13 @@ export default function AddEnglishDeck(props) {
             <div className="deck-bar-right">
               <div className="deck-card-number-container">
               <img src ={require('../../../../docs/card-icon.png')} id="card-icon"/>
-              <div id="centered-number">15</div>
+              <div id="centered-number">{count}</div>
               </div>
-              <span id="card-number">You have 0 cards in your deck.</span>
+              <span id="card-number">You have {count} cards in your deck.</span>
               
             </div>
           </div>
-          <EnglishCards countCards={countCards()} deckID={deckID}/>
+          <EnglishCards countCards={() => countCards()} deckID={deckID}/>
 
 
 

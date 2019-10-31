@@ -11,6 +11,7 @@ export default function EnglishCards(props) {
   const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
   const deckID = props.deckID;
+  const countCards = props.countCards;
 
   const create = () => {
     return axios.post(`/api/decks/${deckID}/cards`, {
@@ -24,6 +25,7 @@ export default function EnglishCards(props) {
       setDefinition("");
       setImage("");
       confirmAdd();
+      countCards();
     })
     .catch(error => {
       console.log(error);
