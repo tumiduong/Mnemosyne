@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './SharedCardList.css';
 import SharedCardListItem from "./SharedCardListItem";
 import Navbar from '../Navbar';
-import Sidenav from '../Sidenav';
 import axios from 'axios';
 
 
