@@ -31,7 +31,7 @@ export default function CreateCard(props) {
         <form autoComplete="off" onSubmit={event => event.preventDefault()} className="create-form">
           <div className="term-form">
             <div className="term-lookup">
-              <span className="title">Word Look Up 🔍</span>
+              <span className="title">WORD LOOK UP </span>
               <input
                 className="term-input"
                 name="term"
@@ -42,11 +42,11 @@ export default function CreateCard(props) {
               />
               <div>
                 <input type='checkbox' onChange={event => checked ? setChecked(false) : setChecked(true)} value='1' name='selfdestruct'id="fetch-checkbox" /> 
-                <span id="fetch-question"> Fetch visual from Unsplash </span>
+                <span id="fetch-question"> Fetch a related visual from Unsplash </span>
               </div>
             </div>
-            <div>
-              <a id="lookup" onClick={() => searchTerm()}>Search</a>
+            <div id="lookup" onClick={() => searchTerm()} >
+              <a >Search</a>
             </div>
           </div>
 
@@ -54,7 +54,7 @@ export default function CreateCard(props) {
 
           <div className="definition-form">
             <div className="definition-lookup">
-              <span className="title">Definition</span>
+              <span className="title">DEFINITION</span>
               <textarea
                 rows="4"
                 className="definition-input"
@@ -70,13 +70,14 @@ export default function CreateCard(props) {
           </div>
 
         </form>
-        <a className="create-card">Create card</a>
+        <div id="save-card"> <a>Save Card</a> </div>
+        
       </div >
       <div className="card-preview-wrap">
+      <span className="title">CARD PREVIEW</span>
       <CardListItem
          term={term}
-         definition={definition}
-      
+         definition={definition}     
       />
       </div>
       
