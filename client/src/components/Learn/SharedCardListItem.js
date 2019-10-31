@@ -1,5 +1,5 @@
 import React from "react";
-import './CardListItem.css'
+import './SharedCardListItem.css'
 
 export default function SharedCardListItem(props) {
 
