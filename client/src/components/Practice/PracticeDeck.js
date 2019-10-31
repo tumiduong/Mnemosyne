@@ -5,6 +5,19 @@ import PracticeTerm from './PracticeTerm';
 import PracticeDefinition from './PracticeDefinition';
 
 export default function PracticeDeck(props) {
+  
+  const { deckID } = props.match.params;
+  const [ card, setCard ] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/rounds/${deckID}`)
+      .then(res => {
+        setCard(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []);
 
 
 
