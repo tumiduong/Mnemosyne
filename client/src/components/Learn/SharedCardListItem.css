@@ -1,0 +1,115 @@
+.big-wrap {
+  display: block;
+  align-items: center;
+}
+.card-cover {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  height: 35em;
+  width: 21em;
+  position: relative;
+}
+
+.card-cover-top-border {
+  position: absolute;
+  width: 21em;
+  height: 2em;
+  background: #69C7C3;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-back-top-border {
+  position: absolute;
+  width: 21em;
+  height: 2em;
+  background: #84E296;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-front {
+  background-color: #C1E5E4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  transform: rotateY(180deg);
+}
+
+div.card-term {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 45%;
+  margin-right:10%;
+  margin-left:10%;
+  font-family: "Libre Baskerville";
+  font-size: 2em;
+  font-weight: 400;
+  color: #6D6986;
+  letter-spacing: 1px;
+  user-select: none;
+
+}
+
+div.card-definition {
+  font-family: "Red Hat Display";
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #6D6986;
+  text-align: left;
+  /* margin-right:6%;
+  margin-left:%; */
+  word-wrap: break-word;
+  margin-top: 4em;
+  padding: 0 2em 2em 2em;
+  user-select: none;
+
+}
+
+.card-inner {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card-cover:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.delete-button {
+  text-align: center;
+  margin-top: 2em;
+  background-color: #EB5757;
+  height: 2em;
+  padding-top: 0.7em;
+  border-radius: 1.5em;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 1.3em;
+  color: white;
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
+.delete-button:hover {
+  background-color: red;
+}

@@ -38,15 +38,18 @@ module.exports = knex => {
   });
 
   // get deck by set link
-  // if visited in react router Redirect to id? or !! render cards !!
-  router.get('/:link', function(req, res, next) {
+  router.get('/share/:link', function(req, res, next) {
     const { link } = req.params;
+    
     knex
-      .select('*')
-      .from('decks')
-      .where({ link: link })
+      .select('cards.*', 'decks.name as deck_name', 'decks.description as deck_description', 'subjects.name as deck_subject', 'users.first_name as user_name')
+      .from('cards')
+      .innerJoin('decks', 'cards.deck_id', 'decks.id')
+      .innerJoin('subjects', 'decks.subject_id', 'subjects.id')
+      .innerJoin('users', 'decks.user_id', 'users.id')
+      .where('decks.link', link)
       .then(result => {
-        res.json(result[0]);
+        res.json(result);
       })
       .catch(error => {
         console.log(error);
