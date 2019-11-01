@@ -44,9 +44,9 @@ return (
     <Sidenav selected="practice" />
     <div className="practice-big-wrap">
       <div className="practice-edit-bar">
-        <span className="practice-edit-bar-info">Whatever</span>
-        <span className="practice-edit-bar-info-light">Blabla </span>
-        <a className="practice-edit-button">Play</a>
+        <span className="practice-edit-bar-info">Please click on the deck you want to practice.</span>
+        <span className="practice-edit-bar-info-light"> </span>
+        <a className="practice-edit-button"></a>
       </div>
       <div className="practice-list"> {decks} </div>
     </div>

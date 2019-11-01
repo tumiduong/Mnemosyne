@@ -1,0 +1,112 @@
+.deck-info-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+
+.game-big-wrap {
+  display: grid;
+  min-height: 900px;
+  grid-template-columns: auto;
+  grid-template-rows: 150px 800px;
+  
+}
+
+.game-info-bar {
+  background-color: #EFF2F8;
+  display: grid;
+  grid-template-columns: 200px 150px 150px 150px 150px;
+  grid-template-rows: auto;
+  justify-content: start;
+  padding: 2em;
+
+}
+
+.game-info {
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+.practice-edit-bar-info-light {
+  font-family: "Red Hat Display";
+  margin-left: 0.2em;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #6D6986;
+}
+
+.practice-edit-button {
+  font-family: "Red Hat Display";
+  margin-left: 0.5em;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #6D6986;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.playcards-list {
+  display: grid;
+  grid-template-columns: 360px 360px 360px 360px;
+  grid-template-rows: 600px;
+  column-gap: 30px;
+  justify-content: center;
+  padding:20px;
+}
+
+.practice-card-number-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.centered-number {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 700;
+  color: white;
+
+}
+
+.card-number {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 700;
+  color: white;
+}
+
+div#start {
+  display: flex;
+  height: 40%;
+  /* width: 200px; */
+  margin-left: 1em;
+  margin-top: 10px;
+  justify-content: center;
+  padding-top: 1em;
+  background-color: #27AE60;
+  border-radius: 40px;
+
+}
+
+#starter {
+  font-family: "Red Hat Display";
+  color: white;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+#start:hover {
+  background-color: #07CC5A;
+  cursor: pointer;
+}
