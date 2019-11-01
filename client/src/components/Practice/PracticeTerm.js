@@ -30,7 +30,7 @@ export default function CardListItem(props) {
 
   return (
 
-    <div className="flipTermCard">
+    <div className="flipTermCard" onClick={props.onClick}>
 
       <div className={className} onClick={() => switchClass()}>
 

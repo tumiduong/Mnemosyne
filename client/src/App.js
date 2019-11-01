@@ -13,7 +13,7 @@ import AddEnglishDeck from './components/Create/AddEnglishDeck';
 import AddCustomDeck from './components/Create/AddCustomDeck';
 import SharedCardList from './components/Learn/SharedCardList';
 import Practice from './components/Practice/Practice';
-import PracticeDeckTest from './components/Practice/PracticeDeckTest';
+import PracticeDeck from './components/Practice/PracticeDeck';
 
 function App() {
 const [deck, setDeck] = useState([]);
@@ -44,7 +44,7 @@ useEffect(() => {
         <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
         <Route exact path="/decks/:deckID/cards" component={CardList} />
         <Route exact path="/practice" component={Practice} />
-        <Route exact path="/practice/:deckID" component={PracticeDeckTest} />
+        <Route exact path="/practice/:deckID" component={PracticeDeck} />
         <Route exact path="/:link" component={SharedCardList} />
       </Switch>
   </Router>

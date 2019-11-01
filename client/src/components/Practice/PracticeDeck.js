@@ -7,9 +7,15 @@ import './PracticeDeck.css';
 import axios from 'axios'
 
 export default function PracticeDeck(props) {
-
   const { deckID } = props.match.params;
   const [cards, setCards] = useState([]);
+  const [shuffled, setShuffled] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [definitions, setDefinitions] = useState([])
+  const [correct, setCorrect] = useState(0);
+  const [incorrect, setIncorrect] = useState(0);
+  const [score, setScore] = useState(0);
+  const [start, setStart] = useState(false);
 
   const subject = "subject";
   const title = "title";
@@ -19,42 +25,63 @@ export default function PracticeDeck(props) {
     axios.get(`/api/rounds/${deckID}`)
       .then(res => {
         setCards(res.data);
+        setShuffled([...res.data].sort(function(a, b){return 0.5 - Math.random()}));
       })
       .catch(error => {
         console.log(error);
       })
   }, []);
 
-  const playCards = cards.sort(function (a, b) { return 0.5 - Math.random() }).slice(0, 4);
-  const preShuffle = [...playCards];
-  const shufflePlayCards = preShuffle.sort(function (a, b) { return 0.5 - Math.random() });
+  const t = shuffled[index];
+  const deckLength = shuffled.length;
+  
+  const shuffleDefinitions = (current) => {
+    const term = current;
+    const withoutTerm = [...shuffled].filter(element => element.id !== term.id);
+      for (let i = withoutTerm.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [withoutTerm[i], withoutTerm[j]] = [withoutTerm[j], withoutTerm[i]];
+      }
+    const selected = [withoutTerm[0], term, withoutTerm[withoutTerm.length - 1]]
+    setDefinitions([...selected].sort(function(a, b){return 0.5 - Math.random()}));
+  };
 
+  const renderDef = (def) => {
+    const playDefinitions = def.map(d => {
+      return (
+        <PracticeTerm
+          key={d.id + 1000}
+          id={d.id}
+          term={d.definition}
+          image={d.image}
+          onClick={(event) => validate(d.id)}
+        />
+      );
+    });
+    return playDefinitions;
+  };
 
-  const playTerms = playCards.map(t => {
-    return (
-      <PracticeTerm
-        key={t.id}
-        id={t.id}
-        term={t.term}
-        definition={t.definition}
-        image={t.image}
-      />
-    );
-  });
+  const gameStart = () => {
+    shuffleDefinitions(t);
+    setStart(true);
+  };
 
-  const playDefinitions = shufflePlayCards.map(d => {
-    return (
-      <PracticeDefinition
-        key={d.id + 1000}
-        id={d.id}
-        definition={d.definition}
-        image={d.image}
-      />
-    );
-  });
+  const nextRound = () => {
+    setIndex(index + 1);
+    shuffleDefinitions(shuffled[index + 1]);
+  }
 
-
-
+  const validate = (id) => {
+    if (t.id === id) {
+      console.log("CORRECT")
+      setCorrect(correct + 1)
+      nextRound();
+    } else {
+      console.log("INCORRECT")
+      setIncorrect(incorrect + 1);
+      nextRound();
+    }
+  };
 
   return (
     <div>
@@ -71,17 +98,17 @@ export default function PracticeDeck(props) {
 
             <div className="practice-card-number-container">
               <img src={require('../../../../docs/questions.png')} id="card-icon" />
-              <div className="card-number">20/20</div>
+              <div className="card-number">{index}/{deckLength}</div>
             </div>
             <div className="practice-card-number-container">
               <img src={require('../../../../docs/right-answer.png')} id="card-icon" />
-              <div className="centered-number">18</div>
+              <div className="centered-number">{correct}</div>
             </div>
             <div className="practice-card-number-container">
               <img src={require('../../../../docs/wrong-answer.png')} id="card-icon" />
-              <div className="centered-number">5</div>
+              <div className="centered-number">{incorrect}</div>
             </div>
-            <div id="start">
+            <div id="start" onClick={() => gameStart()}>
               <span id="starter">START</span>
             </div>
 
@@ -94,11 +121,8 @@ export default function PracticeDeck(props) {
 
           </div>
           <div className="playcards-list">
-            {/* <div>TERM</div>
-            <div>DEFINITION 1</div>
-            <div>DEFINITION 2</div>
-            <div>DEFINITION 3</div> */}
-            {playTerms}
+            {start && <PracticeTerm key={t.id} id={t.id} term={t.term} onClick={(event) => console.log(t.id)}/>}
+            {renderDef(definitions)}
           </div>
         </div>
       </div>
