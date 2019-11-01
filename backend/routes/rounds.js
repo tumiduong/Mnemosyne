@@ -16,11 +16,16 @@ module.exports = knex => {
       });
   });
 
-  // get all rounds of a user 
-  router.get('/', function(req, res, next) {
+  // get random cards for round from a specific deck (id) 
+  router.get('/:id', function(req, res, next) {
+    const { id } = req.params;
+
     knex
-      .select('*')
-      .from('rounds')
+      .select('cards.*', 'decks.id as deck_id','decks.name as deck_name', 'decks.description as deck_description', 'subjects.name as subject_name')
+      .from('cards')
+      .innerJoin('decks', 'cards.deck_id', 'decks.id')
+      .innerJoin('subjects', 'decks.subject_id', 'subjects.id')
+      .where('decks.id', id)
       .then(result => {
         res.json(result);
       })
