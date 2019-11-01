@@ -12,6 +12,11 @@ export default function CustomCards(props) {
   const [checked, setChecked] = useState(false);
   const deckID = props.deckID;
 
+
+  const confirmAdd = () => {
+    setMessage("Card added! Add another if you'd like.")
+  }
+
   const create = () => {
     return axios.post(`/api/decks/${deckID}/cards`, {
       deck_id: deckID,
@@ -42,10 +47,6 @@ export default function CustomCards(props) {
     if (!checked) {
       setImage("");
     }
-  }
-
-  const confirmAdd = () => {
-    setMessage("Card added! Add another if you'd like.")
   }
 
   const validate = () => {
