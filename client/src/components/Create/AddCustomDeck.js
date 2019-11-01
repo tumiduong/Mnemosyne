@@ -13,6 +13,8 @@ export default function AddCustomDeck(props) {
 
   const { deckID } = props.match.params;
 
+  const pathName = `/decks/${deckID}/cards`
+
   useEffect(() => {
     axios.get(`/api/decks/${deckID}`)
       .then(res => {
@@ -33,9 +35,9 @@ export default function AddCustomDeck(props) {
 
         <div className="custom-deck-creation">
           <div className="info-bar">
-            <span className="info">You are now creating a custom deck.</span>
-            <span className="info-else">Wanted to create an English deck?</span>
-            <a className="info-else-click" href="/create/englishdeck">Click here</a>
+            <span className="info">You are now adding a custom card to your {title} deck.</span>
+            <span className="info-else">Done editing?</span>
+            <a className="info-else-click" href={pathName}>Save and learn.</a>
           </div>
           <div className="deck-details-bar">
             <div className="deck-details-bar-left">

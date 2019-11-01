@@ -24,10 +24,15 @@
 
 .info-else {
   font-family: "Red Hat Display";
-  margin-left: 0.8em;
+  margin-left: 0.3em;
   font-size: 1.5em;
   font-weight: 400;
   color: #6D6986;
+}
+
+.info-else-click:hover {
+  color: #27AE60;
+  font-weight: 700;
 }
 
 .info-else-click {

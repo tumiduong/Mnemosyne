@@ -1,7 +1,9 @@
-/* .big-wrap {
+.big-wrap {
   display: block;
   align-items: center;
-} */
+  transform: translateZ(0);
+ 
+}
 
 .flipCard {
   -webkit-perspective: 600;
