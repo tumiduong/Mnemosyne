@@ -1,5 +1,9 @@
 .custom-deck-creation {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display:flex;
   flex-direction: column;
   justify-content: start;
   min-height: 1000px;
@@ -41,7 +45,11 @@
 }
 
 .deck-details-bar {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display:flex;
   flex-direction: row;
   justify-content: space-between;
   height: 40%;
@@ -50,7 +58,11 @@
 }
 
 .deck-details-bar-left {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display:flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 50%;
@@ -90,7 +102,11 @@ form {
 }
 
 .deck-details-bar-right {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display:flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
