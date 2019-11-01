@@ -12,8 +12,6 @@ export default function CardList(props) {
   const urlCustom = `/edit/deck/${deckID}/custom`;
   const urlEnglish = `/edit/deck/${deckID}/english`;
 
-
-
   useEffect(() => {
     axios.get(`/api/decks/${deckID}/cards`)
       .then(res => {
