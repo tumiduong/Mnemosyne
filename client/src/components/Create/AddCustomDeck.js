@@ -10,6 +10,17 @@ export default function AddCustomDeck(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
+  const [count, setCount] =useState("");
+
+  const countCards = () => {
+    return axios.get(`/api/decks/${deckID}`)
+      .then(res => {
+        setCount(res.data.card_count);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   const { deckID } = props.match.params;
 
@@ -21,6 +32,7 @@ export default function AddCustomDeck(props) {
         setTitle(res.data.name);
         setDescription(res.data.description);
         setSubject(res.data.subject_name);
+        setCount(res.data.card_count);
       })
       .catch(error => {
         console.log(error);
@@ -39,13 +51,22 @@ export default function AddCustomDeck(props) {
             <span className="info-else">Done editing?</span>
             <a className="info-else-click" href={pathName}>Save and learn.</a>
           </div>
-          <div className="deck-details-bar">
-            <div className="deck-details-bar-left">
-              
-              <span>{title}</span>
-              <span>{description}</span>
-              <span>{subject}</span>
+          <div className="the-deck-bar">
+            <div className="deck-bar-left">
 
+              <span className="deck-subject">{subject.toUpperCase()}</span>
+              <span className="deck-title">{title}</span>
+              <span className="deck-description">{description}</span>
+              
+
+            </div>
+            <div className="deck-bar-right">
+              <div className="deck-card-number-container">
+              <img src ={require('../../../../docs/card-icon.png')} id="card-icon"/>
+              <div id="centered-number">{count}</div>
+              </div>
+              <span id="card-number">You have {count} cards in your deck.</span>
+              
             </div>
           </div>
           <CustomCards deckID={deckID}/>

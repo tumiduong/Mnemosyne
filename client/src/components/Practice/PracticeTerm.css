@@ -1,0 +1,124 @@
+.flipTermCard {
+  -webkit-perspective: 600;
+  -ms-perspective: 600;
+  -moz-perspective: 600;
+  -o-perspective: 600;   
+   /* perspective: 600; */
+   /* width: 21em;
+   height: 35em;
+   position: relative;
+   display: flex; */
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.flipTermCard .termCard.flipped {
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+.flipTermCard .termCard {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.flipTermCard .termCard .termSide {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  backface-visibility: hidden; /* Safari & Chrome */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
+}
+.flipTermCard .termCard .termBack {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  text-align: center;
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+.flipTermCard .termCard .termFront {
+  /* font-family: "Libre Baskerville";
+  font-size: 1em;
+  text-align: center; */
+  background-color: #C1E5E4;
+  border-radius: 20px;
+}
+
+.flipTermCard .termCard .termBack {
+  color: black;
+  font-family: Georgia;
+  font-size: 1em;
+}
+
+.termCard-back-top-border {
+  position: absolute;
+  width: 100%;
+  height: 5%;
+  background: #84E296;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.termCard-front-top-border {
+  position: absolute;
+  width: 100%;
+  height: 5%;
+  background: #69C7C3;
+  border-radius: 20px 20px 0px 0px;
+}
+
+
+div.termCard {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-family: "Libre Baskerville";
+  font-size: 32px;
+  font-weight: 400;
+  color: #6D6986;
+  word-wrap: break-word;
+  letter-spacing: 1px;
+  user-select: none;
+
+}
+
+.termCard-definition {
+  font-family: "Red Hat Display";
+  font-size: 20px;
+  font-weight: 400;
+  color: #6D6986;
+  text-align: left;
+  /* margin-right:6%;
+  margin-left:%; */
+  word-wrap: break-word;
+  margin-top: 4em;
+  padding: 0 2em 2em 2em;
+  user-select: none;
+}
+

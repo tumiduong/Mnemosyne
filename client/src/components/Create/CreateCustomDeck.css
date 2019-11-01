@@ -50,11 +50,11 @@
   display: -ms-flexbox;      /* TWEENER - IE 10 */
   display: -webkit-flex;     /* NEW - Chrome */
   display:flex;
-  flex-direction: row;
+  /* flex-direction: row;
   justify-content: space-between;
   height: 40%;
   background-color: #EFF2F8;
-  padding: 2em;
+  padding: 2em; */
 }
 
 .deck-details-bar-left {
@@ -83,7 +83,6 @@ form {
   font-weight: 500;
   height: 2rem;
   padding-bottom: 0.3em;
-  margin-bottom: 0.2em;
   width: 100%;
 }
 
