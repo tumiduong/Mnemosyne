@@ -1,0 +1,9 @@
+.profile-list {
+  display: grid;
+  min-height: 900px;;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  padding: 3em;
+  grid-gap: 3em;
+}

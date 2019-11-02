@@ -79,7 +79,6 @@ export default function PracticeDeck(props) {
   const validate = (id) => {
     if (t.id === id) {
       setCorrect(correct + 1)
-      
 
       if (index + 1 === deckLength) {
         setTimeout(() => endRound(), 2000);

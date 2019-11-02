@@ -23,7 +23,7 @@ export default function PracticeDefinition(props) {
     if (className === "defCard") {
 
       setClassName("defCard flipped");
-      props.validate();
+      
 
     } else if (className === "defCard flipped") {
 

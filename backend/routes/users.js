@@ -84,5 +84,19 @@ module.exports = knex => {
       .catch(error => console.log(error))
   })
 
+  // get the rounds played by the user
+  router.get('/:id/rounds', function(req, res, next) {
+    const { id } = req.params;
+    knex
+      .select('*')
+      .from('rounds')
+      .where('user_id', id)
+      .orderBy('deck_id')
+      .then(result => {
+        res.json(result);
+      })
+      .catch(error => console.log(error))
+  })
+
   return router;
 };

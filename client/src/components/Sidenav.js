@@ -36,7 +36,7 @@ export default function Sidenav(props) {
       <div className="profile-div">
         <span id="welcome-message"> {!loading && 'Welcome back, ' + user.first_name + '.'}</span>
         <span id="profile-info">{!loading && user.first_name} {!loading && user.last_name}</span>
-        <a id="view-profile" href="#viewprofile"> <u>View your profile</u></a>
+        <a id="view-profile" href="/profile"> <u>View your profile</u></a>
       </div>
       <div className={divArr[0]}>
         <img src={require('../../../docs/learn-icon-white.png')} alt="mnemosyne-logo" className="icons" />

@@ -40,8 +40,11 @@ export default function DeckListItem(props) {
         <div className="cover-title">
           {props.name}
         </div>
+        
         <div className="cover-text">
           <span>{props.description}</span>
+          <span>{props.rounds && props.rounds}</span>
+          
 
         </div>
       </div>
