@@ -21,19 +21,19 @@ export default function SharedCardListItem(props) {
  
   return (
 
-    <div className="card-cover">
-      <div className="card-inner">
-        <div className="card-front">
-          <div className="card-cover-top-border"></div>
-          <div className="card-term">
+    <div className="share-card-cover">
+      <div className="share-card-inner">
+        <div className="share-card-front">
+          <div className="share-card-cover-top-border"></div>
+          <div className="share-card-term">
             <p>{props.term}</p>
           </div>
         </div>
 
 
-        <div className="card-back">
-          <div className="card-back-top-border"></div>
-          <div className="card-definition">
+        <div className="share-card-back">
+          <div className="share-card-back-top-border"></div>
+          <div className="share-card-definition">
             <p>{props.definition}</p>
           </div>
           <div style={divStyle}>

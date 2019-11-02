@@ -1,8 +1,8 @@
-.big-wrap {
+.share-big-wrap {
   display: block;
   align-items: center;
 }
-.card-cover {
+.share-card-cover {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.card-cover-top-border {
+.share-card-cover-top-border {
   position: absolute;
   width: 21em;
   height: 2em;
@@ -20,7 +20,7 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.card-back-top-border {
+.share-card-back-top-border {
   position: absolute;
   width: 21em;
   height: 2em;
@@ -28,13 +28,13 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.card-front {
+.share-card-front {
   background-color: #C1E5E4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
   border-radius: 20px;
 }
 
-.card-back {
+.share-card-back {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -43,7 +43,7 @@
   transform: rotateY(180deg);
 }
 
-div.card-term {
+div.share-card-term {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -59,7 +59,7 @@ div.card-term {
 
 }
 
-div.card-definition {
+div.share-card-definition {
   font-family: "Red Hat Display";
   font-size: 1.2em;
   font-weight: 400;
@@ -74,7 +74,7 @@ div.card-definition {
 
 }
 
-.card-inner {
+.share-card-inner {
   display: flex;
   justify-content: center;
   position: relative;
@@ -85,17 +85,17 @@ div.card-definition {
   transform-style: preserve-3d;
 }
 
-.card-cover:hover .card-inner {
+.share-card-cover:hover .share-card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.share-card-front, .share-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.delete-button {
+.share-delete-button {
   text-align: center;
   margin-top: 2em;
   background-color: #EB5757;
@@ -110,6 +110,6 @@ div.card-definition {
   margin-right: 32%;
 }
 
-.delete-button:hover {
+.share-delete-button:hover {
   background-color: red;
 }

@@ -8,12 +8,14 @@ import axios from 'axios';
 export default function SharedCardList(props) {
   const { link } = props.match.params;
   const [card, setCard] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get(`/api/decks/share/${link}`)
       .then(res => {
         console.log(res.data)
         setCard(res.data);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -35,8 +37,12 @@ export default function SharedCardList(props) {
   return (
     <div>
       <Navbar />
-      <div className="test">
-        <div className="card-list"> {cards} </div>
+      <div className="shared-wrap">
+          <div className="share-info-bar">
+          {!loading && 
+            <span className="share-info">You are now viewing {card[0].user_name}'s {card[0].deck_name} deck.</span>}
+          </div>
+        <div className="shared-card-list"> {cards} </div>
       </div>
     </div>
   )

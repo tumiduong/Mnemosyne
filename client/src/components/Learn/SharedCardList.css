@@ -1,14 +1,34 @@
-.card-list {
-  display: grid;
-  min-height: 900px;;
-  /* grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto auto auto; */
-  grid-template-columns: 21em 21em 21em 21em;
-  grid-template-rows: 35em 35em 35em 35em;
-  justify-items: center;
-  align-items: center;
-  padding: 3em;
-  grid-gap: 3em;
+.shared-wrap {
+  display: block;
+  justify-content: center;
+  background-color: #F4F6F8;
 }
 
+.share-info-bar {
+  background-color: #DBE1EC;
+  width : 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2em;
+}
 
+.share-info {
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #6D6986;
+}
+
+.shared-card-list {
+  display: grid;
+  min-height: 900px;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  /* grid-template-columns: 21em 21em 21em 21em;
+  grid-template-rows: 35em 35em 35em 35em; */
+
+  padding: 50px 150px 0 150px;
+  grid-gap: 3em;
+}
