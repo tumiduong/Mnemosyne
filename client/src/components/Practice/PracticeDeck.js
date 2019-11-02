@@ -8,24 +8,21 @@ import axios from 'axios'
 
 export default function PracticeDeck(props) {
   const { deckID } = props.match.params;
-  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [shuffled, setShuffled] = useState([]);
   const [index, setIndex] = useState(0);
-  const [definitions, setDefinitions] = useState([])
+  const [definitions, setDefinitions] = useState([]);
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0);
-  const [score, setScore] = useState(0);
   const [start, setStart] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
-  const subject = "subject";
-  const title = "title";
-  const description = "description";
 
   useEffect(() => {
     axios.get(`/api/rounds/${deckID}`)
       .then(res => {
-        setCards(res.data);
         setShuffled([...res.data].sort(function(a, b){return 0.5 - Math.random()}));
+        setLoading(false);
       })
       .catch(error => {
         console.log(error);
@@ -67,20 +64,48 @@ export default function PracticeDeck(props) {
   };
 
   const nextRound = () => {
-    setIndex(index + 1);
     shuffleDefinitions(shuffled[index + 1]);
   }
 
   const validate = (id) => {
     if (t.id === id) {
-      console.log("CORRECT")
       setCorrect(correct + 1)
-      nextRound();
+      setIndex(index + 1);
+
+      if (index + 1 === deckLength) {
+        setGameOver(true);
+        const gameScore = (correct + 1) / deckLength;
+        sendScore(gameScore);
+      } else {
+        nextRound();
+      }
+
     } else {
-      console.log("INCORRECT")
       setIncorrect(incorrect + 1);
-      nextRound();
+      setIndex(index + 1);
+
+      if (index + 1 === deckLength) {
+        setGameOver(true);
+        const gameScore = correct / deckLength;
+        sendScore(gameScore);
+      } else {
+        nextRound();
+      }
     }
+  };
+
+  const sendScore = (score) => {
+    return axios.post(`/api/rounds`, {
+      user_id: localStorage.id,
+      deck_id: deckID,
+      score: Math.round(score * 100)
+    })
+    .then(res => {
+      setGameOver(false);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   };
 
   return (
@@ -90,10 +115,11 @@ export default function PracticeDeck(props) {
         <Sidenav selected="practice" />
         <div className="game-big-wrap">
           <div className="game-info-bar">
+
             <div className="deck-info-wrap">
-              <span className="deck-subject">{subject.toUpperCase()}</span>
-              <span className="deck-title">{title}</span>
-              <span className="deck-description">{description}</span>
+              <span className="deck-subject">{!loading && shuffled[0].subject_name.toUpperCase()}</span>
+              <span className="deck-title">{!loading && shuffled[0].deck_name}</span>
+              <span className="deck-description">{!loading && shuffled[0].deck_description}</span>
             </div>
 
             <div className="practice-card-number-container">
@@ -108,6 +134,8 @@ export default function PracticeDeck(props) {
               <img src={require('../../../../docs/wrong-answer.png')} id="card-icon" />
               <div className="centered-number">{incorrect}</div>
             </div>
+
+            
             <div id="start" onClick={() => gameStart()}>
               <span id="starter">START</span>
             </div>
@@ -120,10 +148,13 @@ export default function PracticeDeck(props) {
             </div>
 
           </div>
+          {!gameOver && 
           <div className="playcards-list">
-            {start && <PracticeTerm key={t.id} id={t.id} term={t.term} onClick={(event) => console.log(t.id)}/>}
-            {renderDef(definitions)}
+            {start && <PracticeTerm key={t.id} id={t.id} term={t.term}/>}
+            {start && renderDef(definitions)}
           </div>
+          }
+          {gameOver && <div>"GOOD JOB"</div>}
         </div>
       </div>
     </div>

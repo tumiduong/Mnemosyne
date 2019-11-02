@@ -34,5 +34,19 @@ module.exports = knex => {
       });
   });
 
+  router.post('/', function(req, res, next) {
+    knex('rounds').insert({
+      user_id: req.body.user_id,
+      deck_id: req.body.deck_id,
+      score: req.body.score
+    }, ['id'])
+    .then(result => {
+      res.json(result[0].id)
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  })
+
   return router;
 };
