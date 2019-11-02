@@ -16,12 +16,15 @@ export default function PracticeDeck(props) {
   const [incorrect, setIncorrect] = useState(0);
   const [start, setStart] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [counter, setCounter] = useState(0);
+ 
 
 
   useEffect(() => {
     axios.get(`/api/rounds/${deckID}`)
       .then(res => {
-        setShuffled([...res.data].sort(function(a, b){return 0.5 - Math.random()}));
+        setShuffled([...res.data].sort(function (a, b) { return 0.5 - Math.random() }));
         setLoading(false);
       })
       .catch(error => {
@@ -31,30 +34,32 @@ export default function PracticeDeck(props) {
 
   const t = shuffled[index];
   const deckLength = shuffled.length;
-  
+
   const shuffleDefinitions = (current) => {
     const term = current;
     const withoutTerm = [...shuffled].filter(element => element.id !== term.id);
-      for (let i = withoutTerm.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [withoutTerm[i], withoutTerm[j]] = [withoutTerm[j], withoutTerm[i]];
-      }
+    for (let i = withoutTerm.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [withoutTerm[i], withoutTerm[j]] = [withoutTerm[j], withoutTerm[i]];
+    }
     const selected = [withoutTerm[0], term, withoutTerm[withoutTerm.length - 1]]
-    setDefinitions([...selected].sort(function(a, b){return 0.5 - Math.random()}));
+    setDefinitions([...selected].sort(function (a, b) { return 0.5 - Math.random() }));
   };
 
   const renderDef = (def) => {
     const playDefinitions = def.map(d => {
       return (
-        <div className="flipDefCard"> 
-        <PracticeDefinition
-          key={d.id + 1000}
-          id={d.id}
-          definition={d.definition}
-          image={d.image}
-          validate={(event) => validate(d.id)}
-          result={t.id === d.id ? true : false}
-        />
+        <div className="flipDefCard">
+          <PracticeDefinition
+            key={d.id + 1000}
+            id={d.id}
+            definition={d.definition}
+            image={d.image}
+            validate={(event) => validate(d.id)}
+            result={t.id === d.id ? true : false}
+            clicked={clicked}
+            setClicked={setClicked}
+          />
         </div>
       );
     });
@@ -64,42 +69,20 @@ export default function PracticeDeck(props) {
   const gameStart = () => {
     shuffleDefinitions(t);
     setStart(true);
+    setCounter(1);
   };
 
   const nextRound = () => {
     setIndex(index + 1);
+    setCounter(counter + 1)
     shuffleDefinitions(shuffled[index + 1]);
+    setClicked(false);
   }
 
-  const endRound = () => {
-    setGameOver(true);
-    setIndex(index + 1)
+  const endGame = () => {
+    setTimeout(() => setGameOver(true), 2000);
   }
 
-  const validate = (id) => {
-    if (t.id === id) {
-      setCorrect(correct + 1)
-
-      if (index + 1 === deckLength) {
-        setTimeout(() => endRound(), 2000);
-        const gameScore = (correct + 1) / deckLength;
-        sendScore(gameScore);
-      } else {
-        setTimeout(() => nextRound(), 2000);
-      }
-
-    } else {
-      setIncorrect(incorrect + 1);
-
-      if (index + 1 === deckLength) {
-        setTimeout(() => endRound(), 2000);
-        const gameScore = correct / deckLength;
-        sendScore(gameScore);
-      } else {
-        setTimeout(() => nextRound(), 2000);
-      }
-    }
-  };
 
   const sendScore = (score) => {
     return axios.post(`/api/rounds`, {
@@ -107,13 +90,48 @@ export default function PracticeDeck(props) {
       deck_id: deckID,
       score: Math.round(score * 100)
     })
-    .then(res => {
-      setGameOver(false);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .then(res => {
+        setGameOver(false);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   };
+
+  const validate = (id) => {
+
+    if (clicked != true) {
+
+
+      if (index + 1 != deckLength) {
+
+        if (t.id === id) {
+          setTimeout(() => nextRound(), 2000);
+          setCorrect(correct + 1);
+        } else {
+          setTimeout(() => nextRound(), 2000)
+          setIncorrect(incorrect + 1)
+        }
+
+      } else {
+
+        if (t.id === id) {
+          setCorrect(correct + 1);
+          const gameScore = correct + 1 / deckLength;
+          sendScore(gameScore);
+          endGame();
+        } else {
+          setIncorrect(incorrect + 1)
+          const gameScore = correct / deckLength;
+          sendScore(gameScore);
+          endGame();
+        }
+      }
+
+
+    }
+
+  }
 
   return (
     <div>
@@ -131,7 +149,7 @@ export default function PracticeDeck(props) {
 
             <div className="practice-card-number-container">
               <img src={require('../../../../docs/questions.png')} id="card-icon" />
-              <div className="card-number">{index}/{deckLength}</div>
+              <div className="card-number">{counter}/{deckLength}</div>
             </div>
             <div className="practice-card-number-container">
               <img src={require('../../../../docs/right-answer.png')} id="card-icon" />
@@ -142,7 +160,7 @@ export default function PracticeDeck(props) {
               <div className="centered-number">{incorrect}</div>
             </div>
 
-            
+
             <div id="start" onClick={() => gameStart()}>
               <span id="starter">START</span>
             </div>
@@ -155,11 +173,11 @@ export default function PracticeDeck(props) {
             </div>
 
           </div>
-          {!gameOver && 
-          <div className="playcards-list">
-            {start && <PracticeTerm key={t.id} id={t.id} term={t.term}/>}
-            {start && renderDef(definitions)}
-          </div>
+          {!gameOver &&
+            <div className="playcards-list">
+              {start && <PracticeTerm key={t.id} id={t.id} term={t.term} cheating="That's cheating, my friend!" />}
+              {start && renderDef(definitions)}
+            </div>
           }
           {gameOver && <div>"GOOD JOB"</div>}
         </div>

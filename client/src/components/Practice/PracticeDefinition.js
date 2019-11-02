@@ -16,22 +16,18 @@ export default function PracticeDefinition(props) {
     borderRadius: '0px 0px 20px 20px'
   };
 
-  const [className, setClassName] = useState("defCard flipped")
+  const [className, setClassName] = useState("defCard flipped");
 
   const switchDefClass = () => {
 
-    if (className === "defCard") {
-
-      setClassName("defCard flipped");
-      
-
-    } else if (className === "defCard flipped") {
-
+    props.setClicked(true);
+    
+    if (props.clicked != true) {
       setClassName("defCard");
       props.validate();
-
-    }
+    } 
   }
+
 
   let correctResults = [`Good job!`, `Yep, that's right!`, `Correct!`];
   let wrongResults = [`Oops, not quite!`, `Sorry, wrong answer!`, `Be careful next time!`];

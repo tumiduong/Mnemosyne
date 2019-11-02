@@ -52,7 +52,7 @@ export default function PracticeTerm(props) {
           </div>
 
           <div className="termCard-definition">
-            <p> {props.definition} </p>
+            <p> {props.cheating} </p>
           </div>
 
           <div style={divStyle}>
