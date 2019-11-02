@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './PracticeTerm.css';
 
 
-export default function CardListItem(props) {
+export default function PracticeTerm(props) {
 
   let imgUrl = props.image;
 
