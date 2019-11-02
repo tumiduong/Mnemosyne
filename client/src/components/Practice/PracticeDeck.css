@@ -53,7 +53,6 @@
   grid-template-columns: 360px 360px 360px 360px;
   grid-template-rows: 600px;
   column-gap: 30px;
-  justify-content: center;
   padding:20px;
 }
 
@@ -110,3 +109,4 @@ div#start {
   background-color: #07CC5A;
   cursor: pointer;
 }
+

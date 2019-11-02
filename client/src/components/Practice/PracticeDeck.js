@@ -49,13 +49,16 @@ export default function PracticeDeck(props) {
   const renderDef = (def) => {
     const playDefinitions = def.map(d => {
       return (
-        <PracticeTerm
+        <div className="flipDefCard"> 
+        <PracticeDefinition
           key={d.id + 1000}
           id={d.id}
-          term={d.definition}
+          definition={d.definition}
           image={d.image}
-          onClick={(event) => validate(d.id)}
+          validate={(event) => validate(d.id)}
+          result={t.id === d.id ? true : false}
         />
+        </div>
       );
     });
     return playDefinitions;
@@ -75,11 +78,11 @@ export default function PracticeDeck(props) {
     if (t.id === id) {
       console.log("CORRECT")
       setCorrect(correct + 1)
-      nextRound();
+      setTimeout(() => nextRound(), 2000)
     } else {
       console.log("INCORRECT")
       setIncorrect(incorrect + 1);
-      nextRound();
+      setTimeout(() => nextRound(), 2000)
     }
   };
 
