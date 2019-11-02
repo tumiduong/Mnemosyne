@@ -71,28 +71,33 @@ export default function PracticeDeck(props) {
     shuffleDefinitions(shuffled[index + 1]);
   }
 
+  const endRound = () => {
+    setGameOver(true);
+    setIndex(index + 1)
+  }
+
   const validate = (id) => {
     if (t.id === id) {
       setCorrect(correct + 1)
       
 
       if (index + 1 === deckLength) {
-        setGameOver(true);
+        setTimeout(() => endRound(), 2000);
         const gameScore = (correct + 1) / deckLength;
         sendScore(gameScore);
       } else {
-        setTimeout(() => nextRound(), 2000)
+        setTimeout(() => nextRound(), 2000);
       }
 
     } else {
       setIncorrect(incorrect + 1);
 
       if (index + 1 === deckLength) {
-        setGameOver(true);
+        setTimeout(() => endRound(), 2000);
         const gameScore = correct / deckLength;
         sendScore(gameScore);
       } else {
-        setTimeout(() => nextRound(), 2000)
+        setTimeout(() => nextRound(), 2000);
       }
     }
   };
