@@ -11,7 +11,7 @@ export default function AddEnglishDeck(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
-  const [count, setCount] =useState("");
+  const [count, setCount] = useState(0);
 
   const countCards = () => {
     return axios.get(`/api/decks/${deckID}`)

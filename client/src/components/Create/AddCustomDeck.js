@@ -10,7 +10,7 @@ export default function AddCustomDeck(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
-  const [count, setCount] =useState("");
+  const [count, setCount] = useState(0);
 
   const countCards = () => {
     return axios.get(`/api/decks/${deckID}`)
@@ -69,7 +69,7 @@ export default function AddCustomDeck(props) {
               
             </div>
           </div>
-          <CustomCards deckID={deckID}/>
+          <CustomCards countCards={() => countCards()} deckID={deckID}/>
 
 
 

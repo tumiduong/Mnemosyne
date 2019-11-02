@@ -10,6 +10,7 @@ export default function CustomCards(props) {
   const [image, setImage] = useState("")
   const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
+  const [preview, setPreview] = useState(false);
   const deckID = props.deckID;
 
 
@@ -29,23 +30,19 @@ export default function CustomCards(props) {
       setDefinition("");
       setImage("");
       confirmAdd();
+      props.countCards();
     })
     .catch(error => {
       console.log(error);
     })
   }
 
-  const imageFetch = () => {
-    if (checked) {
-      return axios.get(`https://api.unsplash.com/photos/random/?client_id=7b748622f472d0c2ef812b3ff212ea3fe883f7f939a06a62b40faf3f3f0ca21a&count=1&query=${term}`)
-        .then(res => {
-          setImage(res.data[0].urls.regular)
-        })
-        .catch(error => error ? setMessage("Sorry. Could not find a related photo.") : console.log(error))
-    }
-
-    if (!checked) {
+  const imagePreview = () => {
+    if (preview) {
+      setPreview(false);
       setImage("");
+    } else {
+      setPreview(true);
     }
   }
 
@@ -68,7 +65,7 @@ export default function CustomCards(props) {
         <form autoComplete="off" onSubmit={event => event.preventDefault()} className="create-form">
           <div className="term-form">
             <div className="term-lookup">
-              <span className="title">WORD LOOK UP </span>
+              <span className="title">TERM</span>
               <input
                 className="term-input"
                 name="term"
@@ -77,13 +74,18 @@ export default function CustomCards(props) {
                 value={term}
                 onChange={event => setTerm(event.target.value)}
               />
-              <div>
-                <input type='checkbox' onChange={event => checked ? setChecked(false) : setChecked(true)} value='1' name='selfdestruct'id="fetch-checkbox" /> 
-                <span id="fetch-question"> Fetch a related visual from Unsplash </span>
-              </div>
+              <span className="title">IMAGE</span>
+              <input
+                className="term-input"
+                name="image"
+                type="text"
+                placeholder="Enter an image URL"
+                value={image}
+                onChange={event => setImage(event.target.value)}
+              />
             </div>
-            <div id="lookup" onClick={() => imageFetch()} >
-              <a >Search</a>
+            <div id="lookup" onClick={() => imagePreview()} >
+              <a>{preview ? "Remove Image" : "Add Image"}</a>
             </div>
           </div>
 
@@ -116,7 +118,7 @@ export default function CustomCards(props) {
       <CardListItem
          term={term}
          definition={definition}
-         image={image}   
+         image={preview && image}   
       />
       </div>
       
