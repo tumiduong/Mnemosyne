@@ -67,13 +67,14 @@ export default function PracticeDeck(props) {
   };
 
   const nextRound = () => {
+    setIndex(index + 1);
     shuffleDefinitions(shuffled[index + 1]);
   }
 
   const validate = (id) => {
     if (t.id === id) {
       setCorrect(correct + 1)
-      setIndex(index + 1);
+      
 
       if (index + 1 === deckLength) {
         setGameOver(true);
@@ -85,7 +86,6 @@ export default function PracticeDeck(props) {
 
     } else {
       setIncorrect(incorrect + 1);
-      setIndex(index + 1);
 
       if (index + 1 === deckLength) {
         setGameOver(true);
