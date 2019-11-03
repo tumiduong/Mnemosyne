@@ -18,15 +18,15 @@ export default function PracticeDefinition(props) {
 
   const [className, setClassName] = useState("defCard flipped");
 
-  const switchDefClass = () => {
-
+  const answerCard = () => {
     
-    
-    if (props.clicked != true) {
-      props.setClicked(true);
+    if (!props.clicked) {
       setClassName("defCard");
       props.validate();
-    } 
+    }
+
+    props.setClicked(true);
+
   }
 
 
@@ -61,7 +61,7 @@ export default function PracticeDefinition(props) {
 
 
 
-    <div className={className} onClick={() => switchDefClass()}>
+    <div className={className} onClick={() => answerCard()}>
 
 
       <div style={props.id === props.termID ? correctBackground : wrongBackground} className="defSide defFront">
@@ -71,6 +71,7 @@ export default function PracticeDefinition(props) {
 
         <div className="defCard">
           <p> {props.id === props.termID ? correctResults[Math.floor(Math.random() * 3)] : wrongResults[Math.floor(Math.random() * 3)]} </p>
+          {/* <p> {props.id === props.termID ? "Correct!" : "Wrong"} </p> */}
         </div>
 
       </div>
@@ -82,7 +83,7 @@ export default function PracticeDefinition(props) {
         </div>
 
         <div className="defCard-definition">
-          <p> correct ID  {props.id}  actual ID {props.termID}</p>
+          <p> {props.definition}</p>
         </div>
 
         <div style={divStyle}>

@@ -18,13 +18,15 @@ export default function PracticeDeck(props) {
   const [gameOver, setGameOver] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [counter, setCounter] = useState(0);
- 
+
 
 
   useEffect(() => {
     axios.get(`/api/rounds/${deckID}`)
       .then(res => {
         setShuffled([...res.data].sort(function (a, b) { return 0.5 - Math.random() }));
+      })
+      .then(() => {
         setLoading(false);
       })
       .catch(error => {
@@ -81,6 +83,7 @@ export default function PracticeDeck(props) {
   }
 
   const endGame = () => {
+
     setTimeout(() => setGameOver(true), 2000);
   }
 
@@ -100,9 +103,6 @@ export default function PracticeDeck(props) {
   };
 
   const validate = (id) => {
-
-    if (clicked != true) {
-
 
       if (index + 1 != deckLength) {
 
@@ -128,10 +128,6 @@ export default function PracticeDeck(props) {
           endGame();
         }
       }
-
-
-    }
-
   }
 
   return (
@@ -180,7 +176,7 @@ export default function PracticeDeck(props) {
               {start && renderDef(definitions)}
             </div>
           }
-          {gameOver && <div id="scorenote"> <div id="grade"> Congrats! You have answered {correct} cards correctly. Score: { Math.round((correct / deckLength) * 100)}/100</div> </div>}
+          {gameOver && <div id="scorenote"> <div id="grade"> Congrats! You have answered {correct} cards correctly. Score: {Math.round((correct / deckLength) * 100)}/100</div> </div>}
         </div>
       </div>
     </div>
