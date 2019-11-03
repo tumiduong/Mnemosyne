@@ -110,7 +110,7 @@ export default function CustomCards(props) {
 
         </form>
         <div id="save-card" onClick={() => validate()}> <a>Save Card</a> </div>
-        <div>{message}</div>
+        <div id="error-msg">{message}</div>
         
       </div >
       <div className="card-preview-wrap">
