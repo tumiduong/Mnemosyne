@@ -110,3 +110,33 @@ div#start {
   cursor: pointer;
 }
 
+#scorenote {
+  font-family: "Red Hat Display";
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+
+  background-color: #84E296;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 5s;
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {background-color: #DBE1EC;}
+  20%  {background-color: #DEEE9E;}
+  100% {background-color: #84E296;}
+
+  0%   {color: #9BA3BE;}
+  50%  {color: #6D6986;}
+  100% {color: white;}
+
+}
+
+#grade {
+  margin-top: 10%;
+}

@@ -56,7 +56,8 @@ export default function PracticeDeck(props) {
             definition={d.definition}
             image={d.image}
             validate={(event) => validate(d.id)}
-            result={t.id === d.id ? true : false}
+            // result={t.id === d.id ? true : false}
+            termID={t.id}
             clicked={clicked}
             setClicked={setClicked}
           />
@@ -106,10 +107,10 @@ export default function PracticeDeck(props) {
       if (index + 1 != deckLength) {
 
         if (t.id === id) {
-          setTimeout(() => nextRound(), 2000);
+          setTimeout(() => nextRound(), 1500);
           setCorrect(correct + 1);
         } else {
-          setTimeout(() => nextRound(), 2000)
+          setTimeout(() => nextRound(), 1500)
           setIncorrect(incorrect + 1)
         }
 
@@ -179,7 +180,7 @@ export default function PracticeDeck(props) {
               {start && renderDef(definitions)}
             </div>
           }
-          {gameOver && <div>"GOOD JOB"</div>}
+          {gameOver && <div id="scorenote"> <div id="grade"> Congrats! You have answered {correct} cards correctly. Score: { Math.round((correct / deckLength) * 100)}/100</div> </div>}
         </div>
       </div>
     </div>
