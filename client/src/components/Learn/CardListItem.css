@@ -5,7 +5,7 @@
  
 }
 
-.flipCard {
+.flipCardList {
   -webkit-perspective: 600;
   -ms-perspective: 600;
   -moz-perspective: 600;
@@ -19,7 +19,7 @@
    justify-content: space-between;
 }
 
-.flipCard .card.flipped {
+.flipCardList .cardList.flipped {
   transform:rotatey(-180deg);
   -ms-transform:rotatey(-180deg); /* IE 9 */
   -moz-transform:rotatey(-180deg); /* Firefox */
@@ -27,7 +27,7 @@
   -o-transform:rotatey(-180deg); /* Opera */
 }
 
-.flipCard .card {
+.flipCardList .cardList {
   width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
@@ -42,7 +42,7 @@
   transition: 0.5s;
 }
 
-.flipCard .card .side {
+.flipCardList .cardList .sideList {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -55,7 +55,7 @@
   -ms-backface-visibility: hidden; /* Internet Explorer */
   -o-backface-visibility: hidden; /* Opera */
 }
-.flipCard .card .back {
+.flipCardList .cardList .backList {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -69,7 +69,7 @@
   -o-transform:rotatey(-180deg); /* Opera */
 }
 
-.flipCard .card .front {
+.flipCardList .cardList .frontList {
   /* font-family: "Libre Baskerville";
   font-size: 1em;
   text-align: center; */
@@ -77,13 +77,13 @@
   border-radius: 20px;
 }
 
-.flipCard .card .back {
+.flipCardList .cardList .backList {
   color: black;
   font-family: "Red Hat Display";
   font-size: 1em;
 }
 
-.card-back-top-border {
+.cardList-back-top-border {
   position: absolute;
   width: 21em;
   height: 2em;
@@ -91,7 +91,7 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.card-front-top-border {
+.cardList-front-top-border {
   position: absolute;
   width: 21em;
   height: 2em;
@@ -100,8 +100,8 @@
 }
 
 
-div.card-term {
-  display: flex;
+div.cardList-term {
+  display: grid;
   justify-content: center;
   text-align: center;
   margin-top: 45%;
@@ -115,6 +115,21 @@ div.card-term {
   user-select: none;
 
 }
+
+div.cardList-definition {
+  font-family: "Red Hat Display";
+  font-size: 20px;
+  font-weight: 400;
+  color: #6D6986;
+  text-align: left;
+  /* margin-right:6%;
+  margin-left:%; */
+  word-wrap: break-word;
+  margin-top: 4em;
+  padding: 0 2em 2em 2em;
+  user-select: none;
+}
+
 
 .delete-button {
   text-align: center;

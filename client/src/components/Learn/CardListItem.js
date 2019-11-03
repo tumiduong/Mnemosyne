@@ -16,13 +16,13 @@ export default function CardListItem(props) {
     borderRadius: '0px 0px 20px 20px'
   };
 
-  const [ className, setClassName] = useState("card")
+  const [ className, setClassName] = useState("cardList")
 
   const switchClass = () => {
-    if (className === "card") {
-      setClassName("card flipped")
-    } else if (className === "card flipped") {
-      setClassName("card")
+    if (className === "cardList") {
+      setClassName("cardList flipped")
+    } else if (className === "cardList flipped") {
+      setClassName("cardList")
     }
   }
 
@@ -30,18 +30,18 @@ export default function CardListItem(props) {
 
   return (
 
-    <div className="flipCard">
+    <div className="flipCardList">
       <div className={className} onClick={ () => switchClass()}>
-        <div className="side front">
-          <div className="card-front-top-border"> </div>
-          <div className="card-term">
+        <div className="sideList frontList">
+          <div className="cardList-front-top-border"> </div>
+          <div className="cardList-term">
             <p> {props.term} </p>
           </div>
 
         </div>
-        <div className="side back">
-          <div className="card-back-top-border"> </div>
-          <div className="card-definition">
+        <div className="sideList backList">
+          <div className="cardList-back-top-border"> </div>
+          <div className="cardList-definition">
             <p> {props.definition} </p>
           </div>
 
