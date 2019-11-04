@@ -2,6 +2,7 @@
   display: block;
   align-items: center;
 }
+
 .share-card-cover {
   display: flex;
   flex-direction: column;
@@ -56,7 +57,6 @@ div.share-card-term {
   color: #6D6986;
   letter-spacing: 1px;
   user-select: none;
-
 }
 
 div.share-card-definition {
@@ -69,7 +69,6 @@ div.share-card-definition {
   margin-top: 4em;
   padding: 0 2em 2em 2em;
   user-select: none;
-
 }
 
 .share-card-inner {

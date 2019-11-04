@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import './CardListItem.css';
 
-
 export default function CardListItem(props) {
-
   let imgUrl = props.image;
+  const [ className, setClassName] = useState("cardList");
   
   let divStyle = {
     backgroundImage: `url(${imgUrl})`,
@@ -16,17 +15,13 @@ export default function CardListItem(props) {
     borderRadius: '0px 0px 20px 20px'
   };
 
-  const [ className, setClassName] = useState("cardList")
-
   const switchClass = () => {
     if (className === "cardList") {
       setClassName("cardList flipped")
     } else if (className === "cardList flipped") {
       setClassName("cardList")
     }
-  }
-
-
+  };
 
   return (
 

@@ -4,13 +4,11 @@
   margin-bottom: 1em;
 }
 
-
 .game-big-wrap {
   display: grid;
   min-height: 900px;
   grid-template-columns: auto;
   grid-template-rows: 150px 800px;
-  
 }
 
 .game-info-bar {
@@ -20,7 +18,6 @@
   grid-template-rows: auto;
   justify-content: start;
   padding: 2em;
-
 }
 
 .game-info {
@@ -71,7 +68,6 @@
   font-size: 1.5em;
   font-weight: 700;
   color: white;
-
 }
 
 .card-number {
@@ -88,20 +84,17 @@
 div#start {
   display: flex;
   height: 40%;
-  /* width: 200px; */
   margin-left: 1em;
   margin-top: 5px;
   justify-content: center;
   padding-top: 1em;
   background-color: #27AE60;
   border-radius: 40px;
-
 }
 
 div#exit {
   display: flex;
   height: 40%;
-  /* width: 200px; */
   margin-left: 1em;
   margin-top: 5px;
   justify-content: center;
@@ -147,7 +140,6 @@ div#exit {
   0%   {color: #9BA3BE;}
   50%  {color: #6D6986;}
   100% {color: white;}
-
 }
 
 #grade {

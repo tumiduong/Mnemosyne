@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './AddEnglishDeck.css'
+import './AddEnglishDeck.css';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import EnglishCards from './EnglishCards';
 import axios from 'axios';
 
-
 export default function AddEnglishDeck(props) {
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
@@ -21,7 +19,7 @@ export default function AddEnglishDeck(props) {
       .catch(err => {
         console.log(err);
       })
-  }
+  };
 
   const { deckID } = props.match.params;
 
@@ -38,7 +36,7 @@ export default function AddEnglishDeck(props) {
       })
   }, []);
 
-  const pathName = `/decks/${deckID}/cards`
+  const pathName = `/decks/${deckID}/cards`;
 
   return (
     <div>
@@ -72,11 +70,8 @@ export default function AddEnglishDeck(props) {
           </div>
           <EnglishCards countCards={() => countCards()} deckID={deckID}/>
 
-
-
         </div>
         
-
       </div>
     </div>
   )

@@ -5,7 +5,6 @@ import Sidenav from '../Sidenav';
 import ProfileDeckItem from './ProfileDeckItem';
 import axios from 'axios';
 
-
 export default function Profile(props) {
   const [rounds, setRounds] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,5 +79,3 @@ export default function Profile(props) {
     </div>
   )
 }
-
-

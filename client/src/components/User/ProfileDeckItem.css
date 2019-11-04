@@ -53,7 +53,6 @@ div .profile-cover-subject {
   color: white;
   letter-spacing: 2px;
   user-select: none;
-
 }
 
 div .profile-cover-title {
@@ -151,7 +150,6 @@ div .profile-back-text {
   -ms-perspective: 600;
   -moz-perspective: 600;
   -o-perspective: 600;   
-   /* perspective: 600; */
   height: 40em;
   width: 27em;
   position: relative;

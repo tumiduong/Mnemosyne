@@ -75,9 +75,6 @@ a.create-english-button:hover {
   background-color: #77C7C3;
 }
 
-
-
-
 .deck-wrap-top-border {
   position: absolute;
   width: 24em;
@@ -130,4 +127,3 @@ div .explanation-title-english {
   font-weight: 700;
   color: #AFDEDC;
 }
-

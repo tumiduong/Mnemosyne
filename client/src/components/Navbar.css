@@ -9,23 +9,23 @@ nav {
   position: relative;
   height:3em;
   z-index: 100;
-  }
+}
   
-  .logo-wrap {
+.logo-wrap {
   font-family: "Ropa Sans";
   display: flex;
   margin-left: 5em;
-  }
+}
   
   
-  .button-wrap {
+.button-wrap {
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   
-  }
+}
   
-  #login-button {
+#login-button {
   border-radius: 1em;
   background-color: #84E296;
   border: none;
@@ -41,79 +41,73 @@ nav {
   cursor: pointer;
   margin-right: 2em;
   line-height: 0.5em;
-  }
+}
   
   
-  #login-span {
+#login-span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  }
+}
   
-  #login-span:after {
+#login-span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
   transition: 0.5s;
-  }
+}
   
-  #login-button:hover #login-span {
+#login-button:hover #login-span {
   padding-right: 25px;
-  }
+}
   
-  #login-button:hover #login-span:after {
+#login-button:hover #login-span:after {
   opacity: 1;
   right: 0;
-  }
+}
   
+#signup-button {
+  border-radius: 1em;
+  background-color: #27AE60;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Red Hat Display';
+  font-weight: 700;
+  padding: 0.5em;
+  width: 6em;
+  height: 2em;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-right: 5em;
+  line-height: 0.5em;
+}
   
-  
-  #signup-button {
-    border-radius: 1em;
-    background-color: #27AE60;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 1.2em;
-    font-family: 'Red Hat Display';
-    font-weight: 700;
-    padding: 0.5em;
-    width: 6em;
-    height: 2em;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-right: 5em;
-    line-height: 0.5em;
-  }
-  
-  
-  
-  #signup-span {
+#signup-span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  }
+}
   
-  #signup-span:after {
+#signup-span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
   transition: 0.5s;
-  }
+}
   
-  #signup-button:hover #signup-span {
+#signup-button:hover #signup-span {
   padding-right: 25px;
-  }
+}
   
-  #signup-button:hover #signup-span:after {
+#signup-button:hover #signup-span:after {
   opacity: 1;
   right: 0;
-  }
-  
- 
+} 

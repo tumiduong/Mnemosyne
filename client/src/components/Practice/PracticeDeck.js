@@ -78,20 +78,18 @@ export default function PracticeDeck(props) {
     if (back) {
       return <Redirect push to="/practice" />;
     }
-  }
+  };
 
   const nextRound = () => {
     setIndex(prev => prev + 1);
-    setCounter(prev => prev + 1)
+    setCounter(prev => prev + 1);
     shuffleDefinitions(shuffled[index + 1]);
     setClicked(prev => false);
-  }
+  };
 
   const endGame = () => {
-
     setTimeout(() => setGameOver(true), 2000);
-  }
-
+  };
 
   const sendScore = (score) => {
     return axios.post(`/api/rounds`, {
@@ -113,27 +111,27 @@ export default function PracticeDeck(props) {
 
         if (t.id === id) {
           setTimeout(() => nextRound(), 2000);
-          setCorrect(correct + 1);
+          setCorrect(prev => prev + 1);
         } else {
           setTimeout(() => nextRound(), 2000)
-          setIncorrect(incorrect + 1)
+          setIncorrect(prev => prev + 1)
         }
 
       } else {
 
         if (t.id === id) {
-          setCorrect(correct + 1);
+          setCorrect(prev => prev + 1);
           const gameScore = Math.round(((correct + 1) / deckLength) * 100)
           sendScore(gameScore);
           endGame();
         } else {
-          setIncorrect(incorrect + 1)
+          setIncorrect(prev => prev + 1)
           const gameScore = Math.round((correct / deckLength) * 100);
           sendScore(gameScore);
           endGame();
         }
       }
-  }
+  };
 
   return (
     <div>

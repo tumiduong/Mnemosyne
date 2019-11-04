@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
+import React from "react";
 import Navbar from '../Navbar';
 import './Landing.css';
 
 export default function Landing() {
 
-
   return (
     <div className="landing-page">
-      {/* <div>{redirectRender()}</div> */}
       <Navbar />
       <div className="landing-area">
         <div class="bg"></div>
@@ -17,13 +13,7 @@ export default function Landing() {
         <div class="bg bg3"></div>
         <img src={require('../../../../docs/landing-memorize1.png')} id="memorize-anything" />
         <div id="footer"> <p> Made with ❤️ by Berker Erol and Julie Duong </p> </div>
-
-
       </div>
-
-
-
-
     </div>
 
   );

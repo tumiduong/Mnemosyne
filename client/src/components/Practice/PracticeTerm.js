@@ -3,7 +3,7 @@ import './PracticeTerm.css';
 
 
 export default function PracticeTerm(props) {
-
+  const [className, setClassName] = useState("termCard");
   let imgUrl = props.image;
 
   let divStyle = {
@@ -16,17 +16,13 @@ export default function PracticeTerm(props) {
     borderRadius: '0px 0px 20px 20px'
   };
 
-  const [className, setClassName] = useState("termCard")
-
   const switchClass = () => {
     if (className === "termCard") {
       setClassName("termCard flipped")
     } else if (className === "termCard flipped") {
       setClassName("termCard")
     }
-  }
-
-
+  };
 
   return (
 

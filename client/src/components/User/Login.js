@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import Navbar from '../Navbar';
 import './Login.css';
 
-export default function Register() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,11 +21,11 @@ export default function Register() {
           localStorage.setItem("id", res.data);
           setRedirect(true);
         } else {
-          setError("Wrong combination of email/password.")
+          setError("Wrong combination of email/password.");
         }
       })
       .catch(error => console.log(error))
-  }
+  };
 
   const validate = () => {
     if (email === "" || password === "") {
@@ -35,13 +35,13 @@ export default function Register() {
 
     setError("");
     login();
-  }
+  };
 
   const redirectRender = () => {
     if (redirect) {
       return <Redirect push to='/decks' />
     }
-  }
+  };
 
   return (
     <div className="login-page">

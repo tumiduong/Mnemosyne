@@ -3,7 +3,7 @@ import './Sidenav.css';
 import axios from 'axios';
 
 export default function Sidenav(props) {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState([]);
   const userID = localStorage.id;
 
@@ -28,7 +28,6 @@ export default function Sidenav(props) {
   } else if (selected === "practice") {
     divArr = ['learn-div', 'create-div', 'practice-div selected'];
   } 
-
 
   return (
 

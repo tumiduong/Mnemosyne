@@ -2,7 +2,6 @@
   display: block;
   align-items: center;
   transform: translateZ(0);
- 
 }
 
 .flipCardList {
@@ -10,13 +9,13 @@
   -ms-perspective: 600;
   -moz-perspective: 600;
   -o-perspective: 600;   
-   /* perspective: 600; */
-   width: 21em;
-   height: 35em;
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+  /* perspective: 600; */
+  width: 21em;
+  height: 35em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .flipCardList .cardList.flipped {
@@ -70,9 +69,6 @@
 }
 
 .flipCardList .cardList .frontList {
-  /* font-family: "Libre Baskerville";
-  font-size: 1em;
-  text-align: center; */
   background-color: #C1E5E4;
   border-radius: 20px;
 }
@@ -99,7 +95,6 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-
 div.cardList-term {
   display: grid;
   justify-content: center;
@@ -113,7 +108,6 @@ div.cardList-term {
   color: #6D6986;
   letter-spacing: 1px;
   user-select: none;
-
 }
 
 div.cardList-definition {
@@ -122,14 +116,11 @@ div.cardList-definition {
   font-weight: 400;
   color: #6D6986;
   text-align: left;
-  /* margin-right:6%;
-  margin-left:%; */
   word-wrap: break-word;
   margin-top: 4em;
   padding: 0 2em 2em 2em;
   user-select: none;
 }
-
 
 .delete-button {
   text-align: center;

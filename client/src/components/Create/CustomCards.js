@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './CustomCards.css';
 import axios from 'axios';
 import CardListItem from '../Learn/CardListItem';
 
 export default function CustomCards(props) {
-
   const [term, setTerm] = useState("");
   const [definition, setDefinition] = useState("");
   const [image, setImage] = useState("")
   const [message, setMessage] = useState("");
-  const [checked, setChecked] = useState(false);
   const [preview, setPreview] = useState(false);
   const deckID = props.deckID;
 
@@ -31,7 +29,7 @@ export default function CustomCards(props) {
     .catch(error => {
       console.log(error);
     })
-  }
+  };
 
   const imagePreview = () => {
     if (preview) {
@@ -40,7 +38,7 @@ export default function CustomCards(props) {
     } else {
       setPreview(true);
     }
-  }
+  };
 
   const validate = () => {
     if (term === "") {
@@ -53,7 +51,7 @@ export default function CustomCards(props) {
     }
     setMessage("");
     create();
-  }
+  };
 
   return (
     <div className="create-card-wrap" >

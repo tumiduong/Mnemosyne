@@ -5,13 +5,11 @@
  
 }
 
-
 .login-area {
   display: grid;
   z-index: 0;
   justify-content: center;
   height: 1000px;
-  /* background-color: #F4F6F8; */
 }
 
 .login-form {
@@ -24,7 +22,6 @@
 }
 
 .login-form-top-border {
-  /* margin-top: 4.5em; */
   width: 27em;
   height: 2em;
   background: #84E296;
@@ -55,7 +52,6 @@
   box-shadow: inset 0px 2px 2px #9BA3BE;
   border-width: 0;
   padding-left: 0.2em;
-
 }
 
 .login-instructions {
@@ -65,7 +61,6 @@
   font-size: 2em;
   text-align: center;
   color: #27AE60;
-
 }
 
 .login-button {
@@ -80,21 +75,20 @@
   justify-self: center;
   margin-left: 35%;
   margin-top: 35%;
-
   width: 6em;
   height: 2em;
   cursor: pointer;
   line-height: 0.5em;
-  }
+}
 
-  .login-button:hover {
-    background-color: #0C9546;
-  }
+.login-button:hover {
+  background-color: #0C9546;
+}
 
-  .error {
-    font-family: "Red Hat Display";
-    font-size: 1em;
-    margin-top: 1em;
-    font-weight: 500;
-    color: red;
-  }
+.error {
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  margin-top: 1em;
+  font-weight: 500;
+  color: red;
+}

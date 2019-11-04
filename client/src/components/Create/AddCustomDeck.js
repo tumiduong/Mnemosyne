@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './AddCustomDeck.css'
+import './AddCustomDeck.css';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import CustomCards from './CustomCards';
 import axios from 'axios';
 
 export default function AddCustomDeck(props) {
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subject, setSubject] = useState("");
@@ -20,11 +19,11 @@ export default function AddCustomDeck(props) {
       .catch(err => {
         console.log(err);
       })
-  }
+  };
 
   const { deckID } = props.match.params;
 
-  const pathName = `/decks/${deckID}/cards`
+  const pathName = `/decks/${deckID}/cards`;
 
   useEffect(() => {
     axios.get(`/api/decks/${deckID}`)
@@ -71,11 +70,8 @@ export default function AddCustomDeck(props) {
           </div>
           <CustomCards countCards={() => countCards()} deckID={deckID}/>
 
-
-
         </div>
         
-
       </div>
     </div>
   )

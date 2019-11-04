@@ -4,10 +4,9 @@ import axios from 'axios';
 import CardListItem from '../Learn/CardListItem';
 
 export default function EnglishCards(props) {
-
   const [term, setTerm] = useState("");
   const [definition, setDefinition] = useState("");
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
   const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
   const deckID = props.deckID;
@@ -24,13 +23,13 @@ export default function EnglishCards(props) {
       setTerm("");
       setDefinition("");
       setImage("");
-      confirmAdd();
+      setMessage("Card added! Add another if you'd like.")
       countCards();
     })
     .catch(error => {
       console.log(error);
     })
-  }
+  };
 
   const imageFetch = () => {
     if (checked) {
@@ -44,7 +43,7 @@ export default function EnglishCards(props) {
     if (!checked) {
       setImage("");
     }
-  }
+  };
 
   const searchTerm = () => {
     return axios.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${term}?key=b2474d1c-a3fd-47bd-9b37-e2fc58547a29`)
@@ -55,10 +54,6 @@ export default function EnglishCards(props) {
       })
       .catch(error => error ? setMessage("Sorry. Could not find a definition.") : console.log(error))
   };
-
-  const confirmAdd = () => {
-    setMessage("Card added! Add another if you'd like.")
-  }
 
   const validate = () => {
     if (term === "") {
@@ -71,8 +66,7 @@ export default function EnglishCards(props) {
     }
     setMessage("");
     create();
-  }
-
+  };
 
   return (
     <div className="create-card-wrap" >

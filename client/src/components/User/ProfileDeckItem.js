@@ -8,7 +8,7 @@ export default function ProfileDeckItem(props) {
   const copyToClipboard = () => {
     linkRef.current.select();
     document.execCommand('copy');
-  }
+  };
 
   const flip = () => {
     if (className === "profile-card") {
@@ -16,7 +16,7 @@ export default function ProfileDeckItem(props) {
     } else if (className === "profile-card flipped") {
       setClassName("profile-card");
     }
-  }
+  };
 
   return (
     <div>

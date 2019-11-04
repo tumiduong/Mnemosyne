@@ -5,7 +5,6 @@ import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import axios from 'axios';
 
-
 export default function DeckList(props) {
   const [display, setDisplay] = useState(false);
   const [deck, setDeck] = useState([]);
@@ -27,8 +26,7 @@ export default function DeckList(props) {
     } else {
       setDisplay(false);
     }
-  }
-
+  };
 
   const decks = deck.map(deck => {
     return (

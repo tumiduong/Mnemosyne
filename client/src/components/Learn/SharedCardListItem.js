@@ -2,10 +2,7 @@ import React from "react";
 import './SharedCardListItem.css'
 
 export default function SharedCardListItem(props) {
-
   let imgUrl = props.image;
-
-  
 
   let divStyle = {
     backgroundImage: `url(${imgUrl})`,
@@ -15,9 +12,7 @@ export default function SharedCardListItem(props) {
     backgroundRepeat: 'no-repeat',
     backgroundPosition:'center',
     borderRadius: '0px 0px 20px 20px'
-
   };
-  
  
   return (
 

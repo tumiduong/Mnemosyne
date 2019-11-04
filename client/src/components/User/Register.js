@@ -25,23 +25,22 @@ export default function Register() {
         setRedirect(true);
       })
       .catch(err => console.log(err))
-  }
+  };
 
   function validate() {
     if (firstName === "" || lastName === "" || email === "" || password === "") {
       setError("All fields must be filled.");
       return;
     }
-
     setError("");
     register();
-  }
+  };
 
   const redirectRender = () => {
     if (redirect) {
       return <Redirect push to='/create' />
     }
-  }
+  };
 
   return (
     <div className="register-page">

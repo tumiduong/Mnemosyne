@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import './CreateEnglishDeck.css'
+import './CreateEnglishDeck.css';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import axios from 'axios';
 
 export default function CreateEnglishDeck(props) {
-
   const [title, setTitle] = useState(props.title || "");
   const [description, setDescription] = useState(props.description || "");
   const [subject, setSubject] = useState(props.subject || "");
@@ -28,7 +27,7 @@ export default function CreateEnglishDeck(props) {
         setRedirect("forward");
       })
       .catch(err => console.log(err))
-  }
+  };
 
   const cancel = () => {
     setRedirect("back");
@@ -45,7 +44,7 @@ export default function CreateEnglishDeck(props) {
     }
     setError("");
     create();
-  }
+  };
 
   const redirectRender = () => {
     if (redirect === "forward") {
@@ -54,7 +53,7 @@ export default function CreateEnglishDeck(props) {
     if (redirect === "back") {
       return <Redirect push to={{ pathname: `/create` }} />
     }
-  }
+  };
 
   return (
     <div>

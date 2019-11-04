@@ -5,9 +5,8 @@ import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import axios from 'axios';
 
-
 export default function CardList(props) {
-  const { deckID } = props.match.params
+  const { deckID } = props.match.params;
   const [card, setCard] = useState([]);
   const urlCustom = `/edit/deck/${deckID}/custom`;
   const urlEnglish = `/edit/deck/${deckID}/english`;

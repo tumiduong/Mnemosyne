@@ -4,7 +4,6 @@ import SharedCardListItem from "./SharedCardListItem";
 import Navbar from '../Navbar';
 import axios from 'axios';
 
-
 export default function SharedCardList(props) {
   const { link } = props.match.params;
   const [card, setCard] = useState([]);

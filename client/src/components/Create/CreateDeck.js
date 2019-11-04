@@ -1,5 +1,5 @@
 import React from 'react';
-import './CreateDeck.css'
+import './CreateDeck.css';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 

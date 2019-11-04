@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import './CreateCustomDeck.css'
+import './CreateCustomDeck.css';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import axios from 'axios';
 
 export default function CreateCustomDeck(props) {
-
   const [title, setTitle] = useState(props.title || "");
   const [description, setDescription] = useState(props.description || "");
   const [subject, setSubject] = useState(props.subject || "");
@@ -28,7 +27,7 @@ export default function CreateCustomDeck(props) {
         setRedirect("forward");
       })
       .catch(err => console.log(err))
-  }
+  };
 
   const cancel = () => {
     setRedirect("back");
@@ -45,7 +44,7 @@ export default function CreateCustomDeck(props) {
     }
     setError("");
     create();
-  }
+  };
 
   const redirectRender = () => {
     if (redirect === "forward") {
@@ -120,10 +119,7 @@ export default function CreateCustomDeck(props) {
 
           </div>
 
-
-
         </div>
-        
 
       </div>
     </div>

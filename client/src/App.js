@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreateDeck from './components/Create/CreateDeck';
 import CreateCustomDeck from './components/Create/CreateCustomDeck';
-import axios from "axios";
 import DeckList from './components/Learn/DeckList';
 import Register from './components/User/Register';
 import Login from './components/User/Login';
-import CardList from './components/Learn/CardList'
+import CardList from './components/Learn/CardList';
 import CreateEnglishDeck from './components/Create/CreateEnglishDeck';
 import AddEnglishDeck from './components/Create/AddEnglishDeck';
 import AddCustomDeck from './components/Create/AddCustomDeck';
@@ -20,7 +19,6 @@ import Landing from './components/User/Landing';
 
 function App() {
 
-  
   return (
     <Router>
       <Switch>

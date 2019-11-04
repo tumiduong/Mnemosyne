@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import './PracticeDefinition.css';
 
-
 export default function PracticeDefinition(props) {
-
   let imgUrl = props.image;
+  const [className, setClassName] = useState("defCard flipped");
 
   let divStyle = {
     backgroundImage: `url(${imgUrl})`,
@@ -16,8 +15,6 @@ export default function PracticeDefinition(props) {
     borderRadius: '0px 0px 20px 20px'
   };
 
-  const [className, setClassName] = useState("defCard flipped");
-
   const answerCard = () => {
     
     if (!props.clicked) {
@@ -28,7 +25,7 @@ export default function PracticeDefinition(props) {
 
     props.setClicked(true);
 
-  }
+  };
 
   let correctBackground =  { backgroundColor: '#27AE60' };
   let wrongBackground = { backgroundColor: '#EB5757' };
@@ -39,7 +36,7 @@ export default function PracticeDefinition(props) {
     width: '100%', 
     height: '5%', 
     borderRadius: '20px 20px 0px 0px' 
-  } 
+  };
   
   let wrongBorder = { 
     backgroundColor: '#FFC09F',
@@ -47,11 +44,9 @@ export default function PracticeDefinition(props) {
     width: '100%', 
     height: '5%', 
     borderRadius: '20px 20px 0px 0px' 
-  }
+  };
 
   return (
-
-
 
     <div className={className} onClick={() => answerCard()}>
 

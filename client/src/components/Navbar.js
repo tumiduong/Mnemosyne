@@ -11,7 +11,7 @@ export default function Navbar(props) {
 
     <nav>
       <div className="logo-wrap">
-        <img src={require('../../../docs/mnemosyne-logo.png')} alt="mnemosyne-logo" />
+        <a href={localStorage.id ? "/decks" : "/"}><img src={require('../../../docs/mnemosyne-logo.png')} alt="mnemosyne-logo" /></a>
       </div>
       <div>
         {localStorage.id && 
