@@ -140,3 +140,10 @@
   text-decoration: none;
 }
 
+#error-msg {
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  margin-top: 1em;
+  font-weight: 500;
+  color: red;
+}
