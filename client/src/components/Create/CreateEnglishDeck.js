@@ -99,7 +99,7 @@ export default function CreateEnglishDeck(props) {
                   onChange={event => setSubject(event.target.value)}
                 />
               </form>
-              <section className="appointment__validation">{error}</section>
+              <section id="error-msg">{error}</section>
 
             </div>
             <div className="deck-details-bar-right">
