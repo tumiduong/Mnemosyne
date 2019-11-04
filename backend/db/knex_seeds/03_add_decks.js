@@ -34,6 +34,41 @@ exports.seed = function(knex) {
           description: 'Learning ingredients commonly used in skincare and their benefits.',
           link: 'vrWKVu',
         },
+        {
+          user_id: 2,
+          subject_id: 6,
+          name: 'Top 20 Books',
+          description: 'Top 20 Books of All Times',
+          link: 'aSlDkO',
+        },
+        {
+          user_id: 2,
+          subject_id: 7,
+          name: 'Top 10 Marvel Movies',
+          description: "Dom's favorite movies",
+          link: 'MarVeL',
+        },
+        {
+          user_id: 2,
+          subject_id: 9,
+          name: 'Top 15 Cocktails',
+          description: 'Game changer cocktail list',
+          link: 'bl2BlA',
+        },
+        {
+          user_id: 2,
+          subject_id: 10,
+          name: 'Robert Mapplethorpe',
+          description: 'Signature Works of Mapplethorpe',
+          link: 'tHorPE',
+        },
+        {
+          user_id: 2,
+          subject_id: 11,
+          name: 'Favorite Soccer Players',
+          description: 'Top 5 players',
+          link: 's0CcEr',
+        },
       ]);
     }),
   ]);
