@@ -25,7 +25,7 @@ exports.seed = function(knex) {
           subject_id: 2,
           name: 'Organ Systems',
           description: 'Understanding the 11 organ systems in the human body.',
-          link: 'vrWKVu',
+          link: 'trWBVy',
         },
         {
           user_id: 1,

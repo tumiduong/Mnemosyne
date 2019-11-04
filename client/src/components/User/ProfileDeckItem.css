@@ -1,0 +1,217 @@
+.profile-deck-cover {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: start;
+  background-color: #add8de;
+  background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+  height: 40em;
+  width: 27em;
+  margin-top: 1.5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.profile-deck-back {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: start;
+  background-color: #add8de;
+  height: 40em;
+  width: 27em;
+  margin-top: 1.5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.profile-deck-cover-top-border {
+  position: absolute;
+  width: 27em;
+  height: 2em;
+  background: #69C7C3;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.profile-deck-cover-back-border {
+  position: absolute;
+  width: 27em;
+  height: 2em;
+  background: #69C7C3;
+  border-radius: 20px 20px 0px 0px;
+}
+
+div .profile-cover-subject {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20%;
+  margin-bottom: 15%;
+  font-family: "Red Hat Display";
+  font-size: 2em;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 2px;
+  user-select: none;
+
+}
+
+div .profile-cover-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  margin-right:10%;
+  margin-left:10%;
+  font-family: "Libre Baskerville";
+  font-size: 3em;
+  font-weight: 400;
+  color: #EAAF3C;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+div .profile-cover-text {
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #27AE60;
+  text-align: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  visibility: hidden;
+  user-select: none;
+}
+
+div .profile-back-text {
+  text-align: center;
+  font-family: "Red Hat Display";
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #6D6986;
+  text-align: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-top: 15%;
+}
+
+.profile-deck-cover:hover div.profile-cover-text {
+  visibility: visible;
+}
+
+.profile-deck-cover:hover {
+  box-shadow: 0px 4px 4px #84E296;
+  background-color: #84E296;
+  background-image: none;
+}
+
+.profile-deck-cover:hover .profile-deck-cover-top-border {
+  background: #27AE60;
+}
+
+.profile-deck-cover:hover .profile-cover-title {
+  color: #27AE60;
+}
+
+.share-button {
+  text-align: center;
+  background-color: #84E296;
+  height: 2em;
+  width: 6em;
+  padding-top: 0.7em;
+  border-radius: 1.5em;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 1.3em;
+  color: white;
+}
+
+.share-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.link-input {
+  resize: none;
+  width: 14em;
+	border: 1px solid #cccccc;
+	padding: 5px;
+  font-family: "Red Hat Display";
+  font-size: 1em;
+  border-radius: 0.7em;
+  -moz-appearance:none;
+  outline:0px none transparent;  
+}
+
+.profile-flip {
+  -webkit-perspective: 600;
+  -ms-perspective: 600;
+  -moz-perspective: 600;
+  -o-perspective: 600;   
+   /* perspective: 600; */
+  height: 40em;
+  width: 27em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-flip .profile-card.flipped {
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+.profile-flip .profile-card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.profile-flip .profile-card .side {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  backface-visibility: hidden; /* Safari & Chrome */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
+}
+.profile-flip .profile-card .profile-deck-back {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  text-align: center;
+  transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+.profile-flip .profile-card .profile-deck-back {
+  color: black;
+  font-family: "Red Hat Display";
+  font-size: 1em;
+}

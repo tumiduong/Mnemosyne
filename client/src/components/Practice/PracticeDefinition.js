@@ -22,6 +22,7 @@ export default function PracticeDefinition(props) {
     
     if (!props.clicked) {
       setClassName("defCard");
+      setTimeout(() => setClassName("defCard flipped"), 1500)
       props.validate();
     }
 
@@ -29,18 +30,9 @@ export default function PracticeDefinition(props) {
 
   }
 
-
-  let correctResults = [`Good job!`, `Yep, that's right!`, `Correct!`];
-  let wrongResults = [`Oops, not quite!`, `Sorry, wrong answer!`, `Be careful next time!`];
-
-  // let resultBackground = props.result ? { backgroundColor: '#27AE60' } : { backgroundColor: '#EB5757' }
   let correctBackground =  { backgroundColor: '#27AE60' };
   let wrongBackground = { backgroundColor: '#EB5757' };
   
-
-  
-  // let resultTopBackground = props.result ? { backgroundColor: '#84E296',position: 'absolute', width: '100%', height: '5%', borderRadius: '20px 20px 0px 0px' } : { backgroundColor: '#FFC09F',position: 'absolute', width: '100%', height: '5%', borderRadius: '20px 20px 0px 0px' }
-
   let correctBorder = { 
     backgroundColor: '#84E296',
     position: 'absolute', 
@@ -70,8 +62,7 @@ export default function PracticeDefinition(props) {
         </div>
 
         <div className="defCard">
-          <p> {props.id === props.termID ? correctResults[Math.floor(Math.random() * 3)] : wrongResults[Math.floor(Math.random() * 3)]} </p>
-          {/* <p> {props.id === props.termID ? "Correct!" : "Wrong"} </p> */}
+          <p> {props.id === props.termID ? "Correct!" : "Wrong!"}</p>
         </div>
 
       </div>

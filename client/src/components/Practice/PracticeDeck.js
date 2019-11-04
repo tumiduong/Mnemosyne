@@ -19,8 +19,6 @@ export default function PracticeDeck(props) {
   const [clicked, setClicked] = useState(false);
   const [counter, setCounter] = useState(0);
 
-
-
   useEffect(() => {
     axios.get(`/api/rounds/${deckID}`)
       .then(res => {
@@ -58,7 +56,6 @@ export default function PracticeDeck(props) {
             definition={d.definition}
             image={d.image}
             validate={(event) => validate(d.id)}
-            // result={t.id === d.id ? true : false}
             termID={t.id}
             clicked={clicked}
             setClicked={setClicked}
@@ -76,10 +73,10 @@ export default function PracticeDeck(props) {
   };
 
   const nextRound = () => {
-    setIndex(index + 1);
-    setCounter(counter + 1)
+    setIndex(prev => prev + 1);
+    setCounter(prev => prev + 1)
     shuffleDefinitions(shuffled[index + 1]);
-    setClicked(false);
+    setClicked(prev => false);
   }
 
   const endGame = () => {
@@ -107,10 +104,10 @@ export default function PracticeDeck(props) {
       if (index + 1 != deckLength) {
 
         if (t.id === id) {
-          setTimeout(() => nextRound(), 1500);
+          setTimeout(() => nextRound(), 2000);
           setCorrect(correct + 1);
         } else {
-          setTimeout(() => nextRound(), 1500)
+          setTimeout(() => nextRound(), 2000)
           setIncorrect(incorrect + 1)
         }
 
