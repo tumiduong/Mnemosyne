@@ -22,14 +22,23 @@ exports.seed = function(knex) {
           name: 'Engineering',
         },
         {
-          name: 'Fashion',
+          name: 'Literature',
         },
         {
-          name: 'Architecture',
+          name: 'Cinema',
         },
         {
           name: 'Cosmetics',
         },
+        { 
+          name: 'Cocktails',
+        },
+        {
+          name: 'Photography',
+        },
+        {
+          name: 'Sports',
+        }
       ]);
     }),
   ]);
