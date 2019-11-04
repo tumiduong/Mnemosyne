@@ -27,7 +27,7 @@ export default function Register() {
       .catch(error => console.log(error))
   }
 
-  function validate() {
+  const validate = () => {
     if (email === "" || password === "") {
       setError("All fields must be filled.");
       return;
@@ -39,7 +39,7 @@ export default function Register() {
 
   const redirectRender = () => {
     if (redirect) {
-      return <Redirect push to='/create' />
+      return <Redirect push to='/decks' />
     }
   }
 

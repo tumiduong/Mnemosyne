@@ -16,7 +16,7 @@ export default function Navbar(props) {
       <div>
         {localStorage.id && 
         <div className="button-wrap">
-          <form className="btn-login" method="GET" action="/create">
+          <form className="btn-login" method="GET" action="/">
         <button type="submit" id="login-button" onClick={() => logout()}>
           <span id="login-span">Log out</span>
         </button>

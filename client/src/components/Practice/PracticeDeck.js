@@ -4,7 +4,7 @@ import Sidenav from '../Sidenav';
 import PracticeTerm from './PracticeTerm';
 import PracticeDefinition from './PracticeDefinition';
 import './PracticeDeck.css';
-import axios from 'axios'
+import axios from 'axios';
 
 export default function PracticeDeck(props) {
   const { deckID } = props.match.params;
@@ -92,7 +92,7 @@ export default function PracticeDeck(props) {
     return axios.post(`/api/rounds`, {
       user_id: localStorage.id,
       deck_id: deckID,
-      score: Math.round(score * 100)
+      score: score
     })
       .then(res => {
         setGameOver(false);
@@ -118,12 +118,12 @@ export default function PracticeDeck(props) {
 
         if (t.id === id) {
           setCorrect(correct + 1);
-          const gameScore = correct + 1 / deckLength;
+          const gameScore = Math.round(((correct + 1) / deckLength) * 100)
           sendScore(gameScore);
           endGame();
         } else {
           setIncorrect(incorrect + 1)
-          const gameScore = correct / deckLength;
+          const gameScore = Math.round((correct / deckLength) * 100);
           sendScore(gameScore);
           endGame();
         }

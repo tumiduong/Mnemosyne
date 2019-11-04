@@ -9,19 +9,23 @@ import axios from 'axios';
 export default function Profile(props) {
   const [rounds, setRounds] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [deck, setDeck] = useState([]);
   const userID = localStorage.id;
 
   useEffect(() => {
-    axios.get(`/api/users/${userID}/rounds`)
-      .then(res => {
-        setRounds(res.data);
+    const getRounds = axios.get(`/api/users/${userID}/rounds`);
+    const getDecks = axios.get(`/api/users/${userID}/decks`);
+
+    Promise.all([getRounds, getDecks])
+      .then(all => {
+        setRounds(all[0].data);
+        setDeck(all[1].data);
         setLoading(false);
       })
       .catch(error => {
         console.log(error);
       })
   }, []);
-
 
 
   const roundsPerDeck = (deckID) => {
@@ -37,7 +41,7 @@ export default function Profile(props) {
     return stats;
   }
 
-  const decks = props.deck.map(deck => {
+  const decks = deck.map(deck => {
     return (
       <DeckListItem
         key={deck.id}

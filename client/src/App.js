@@ -19,25 +19,14 @@ import Landing from './components/User/Landing';
 
 
 function App() {
-const [deck, setDeck] = useState([]);
-const userID = localStorage.id;
 
-useEffect(() => {
-  axios.get(`/api/users/${userID}/decks`)
-    .then(res => {
-      setDeck(res.data);
-    })
-    .catch(error => {
-      console.log(error);
-    })
-}, []);
   
   return (
     <Router>
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/profile" component={() => <Profile deck={deck} />} />
+        <Route exact path="/profile" component={Profile} />
 
         <Route exact path="/create" component={CreateDeck} />
         <Route exact path="/create/customdeck" component={CreateCustomDeck} />
@@ -45,7 +34,7 @@ useEffect(() => {
         <Route exact path="/create/englishdeck" component={CreateEnglishDeck} />
         <Route exact path="/edit/deck/:deckID/english" component={AddEnglishDeck} />
 
-        <Route exact path="/decks" component={() => <DeckList deck={deck}/>} />
+        <Route exact path="/decks" component={DeckList} />
         <Route exact path="/decks/:deckID/cards" component={CardList} />
         <Route exact path="/practice" component={Practice} />
         <Route exact path="/practice/:deckID" component={PracticeDeck} />

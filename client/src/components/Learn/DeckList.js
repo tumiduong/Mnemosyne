@@ -1,13 +1,26 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import './DeckList.css'
 import DeckListItem from "./DeckListItem";
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
+import axios from 'axios';
 
 
 export default function DeckList(props) {
-
   const [display, setDisplay] = useState(false);
+  const [deck, setDeck] = useState([]);
+  const userID = localStorage.id;
+
+  useEffect(() => {
+    axios.get(`/api/users/${userID}/decks`)
+      .then(res => {
+        setDeck(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []);
+
   const toggle = () => {
     if (!display) {
       setDisplay(true);
@@ -17,7 +30,7 @@ export default function DeckList(props) {
   }
 
 
-  const decks = props.deck.map(deck => {
+  const decks = deck.map(deck => {
     return (
       <DeckListItem
         key={deck.id}
