@@ -52,7 +52,7 @@ export default function Register() {
           <div className="register-form-top-border">
           </div>
           <div className="form-wrapper">
-            <form className="form-inputs"
+            <form autoComplete="off" className="form-inputs"
               onSubmit={event => event.preventDefault()}>
 
               <div className="register-instructions">Please enter your credentials to <strong>sign up</strong>.</div>
@@ -62,28 +62,40 @@ export default function Register() {
                 type="text"
                 name="firstName"
                 placeholder="First name"
-                onChange={event => setFirstName(event.target.value)}
+                onChange={event => {
+                  setFirstName(event.target.value);
+                  setError("");
+                }}
               />
               <input
                 className="input-typing"
                 type="text"
                 name="lastName"
                 placeholder="Last name"
-                onChange={event => setLastName(event.target.value)}
+                onChange={event => {
+                  setLastName(event.target.value);
+                  setError("");
+                }}
               />
               <input
                 className="input-typing"
                 type="text"
                 name="email"
                 placeholder="Email address"
-                onChange={event => setEmail(event.target.value)}
+                onChange={event => {
+                  setEmail(event.target.value);
+                  setError("");
+                }}
               />
               <input
                 className="input-typing"
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={event => setPassword(event.target.value)}
+                onChange={event => {
+                  setPassword(event.target.value);
+                  setError("");
+                }}
               />
 
               <div className="error">{error}</div>

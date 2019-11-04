@@ -78,7 +78,10 @@ export default function CreateCustomDeck(props) {
                   type="text"
                   placeholder="Enter a title for your deck"
                   value={title}
-                  onChange={event => setTitle(event.target.value)}
+                  onChange={event => {
+                    setTitle(event.target.value);
+                    setError("");
+                  }}
                 />
 
                 <input
@@ -87,7 +90,10 @@ export default function CreateCustomDeck(props) {
                   type="text"
                   placeholder="Describe your deck with few words"
                   value={description}
-                  onChange={event => setDescription(event.target.value)}
+                  onChange={event => {
+                    setDescription(event.target.value);
+                    setError("");
+                  }}
                 />
 
                 <input
@@ -96,7 +102,10 @@ export default function CreateCustomDeck(props) {
                   type="text"
                   placeholder="Name the subject"
                   value={subject}
-                  onChange={event => setSubject(event.target.value)}
+                  onChange={event => {
+                    setSubject(event.target.value);
+                    setError("");
+                  }}
                 />
               </form>
               <section id="error-msg">{error}</section>

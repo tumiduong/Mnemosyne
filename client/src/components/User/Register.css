@@ -91,3 +91,11 @@
   .register-button:hover {
     background-color: #0C9546;
   }
+
+  .error {
+    font-family: "Red Hat Display";
+    font-size: 1em;
+    margin-top: 1em;
+    font-weight: 500;
+    color: red;
+  }

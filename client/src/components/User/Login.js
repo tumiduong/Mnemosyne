@@ -53,7 +53,7 @@ export default function Register() {
           <div className="login-form-top-border">
           </div>
           <div className="form-wrapper">
-            <form  className="form-inputs"
+            <form autoComplete="off" className="form-inputs"
               onSubmit={event => event.preventDefault()}>
                 
               <div className="login-instructions">Please enter your credentials to <strong>log in</strong>.</div>
@@ -63,7 +63,10 @@ export default function Register() {
                 type="text"
                 name="email"
                 placeholder="Email address"
-                onChange={event => setEmail(event.target.value)}
+                onChange={event => {
+                  setEmail(event.target.value);
+                  setError("");
+                }}
               />
 
               <input
@@ -71,7 +74,10 @@ export default function Register() {
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={event => setPassword(event.target.value)}
+                onChange={event => {
+                  setPassword(event.target.value);
+                  setError("");
+                }}
               />
 
               <div className="error">{error}</div>

@@ -14,10 +14,6 @@ export default function CustomCards(props) {
   const deckID = props.deckID;
 
 
-  const confirmAdd = () => {
-    setMessage("Card added! Add another if you'd like.")
-  }
-
   const create = () => {
     return axios.post(`/api/decks/${deckID}/cards`, {
       deck_id: deckID,
@@ -29,7 +25,7 @@ export default function CustomCards(props) {
       setTerm("");
       setDefinition("");
       setImage("");
-      confirmAdd();
+      setMessage("Card added! Add another if you'd like.")
       props.countCards();
     })
     .catch(error => {
@@ -72,7 +68,10 @@ export default function CustomCards(props) {
                 type="text"
                 placeholder="Enter a title for your deck"
                 value={term}
-                onChange={event => setTerm(event.target.value)}
+                onChange={event => {
+                  setTerm(event.target.value);
+                  setMessage("");
+                }}
               />
               <span className="title">IMAGE</span>
               <input
@@ -81,7 +80,10 @@ export default function CustomCards(props) {
                 type="text"
                 placeholder="Enter an image URL"
                 value={image}
-                onChange={event => setImage(event.target.value)}
+                onChange={event => {
+                  setImage(event.target.value);
+                  setMessage("");
+                }}
               />
             </div>
             <div id="lookup" onClick={() => imagePreview()} >
@@ -101,7 +103,10 @@ export default function CustomCards(props) {
                 type="text"
                 value={definition}
                 placeholder="Enter a definition for your term, or use search to look up a definition."
-                onChange={event => setDefinition(event.target.value)}
+                onChange={event => {
+                  setDefinition(event.target.value);
+                  setMessage("");
+                }}
               />
 
             </div>

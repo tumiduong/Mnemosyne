@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Sidenav from '../Sidenav';
 import PracticeTerm from './PracticeTerm';
@@ -18,6 +19,7 @@ export default function PracticeDeck(props) {
   const [gameOver, setGameOver] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [counter, setCounter] = useState(0);
+  const [back, setBack] = useState(false);
 
   useEffect(() => {
     axios.get(`/api/rounds/${deckID}`)
@@ -71,6 +73,12 @@ export default function PracticeDeck(props) {
     setStart(true);
     setCounter(1);
   };
+
+  const gameCancel = () => {
+    if (back) {
+      return <Redirect push to="/practice" />;
+    }
+  }
 
   const nextRound = () => {
     setIndex(prev => prev + 1);
@@ -134,6 +142,7 @@ export default function PracticeDeck(props) {
         <Sidenav selected="practice" />
         <div className="game-big-wrap">
           <div className="game-info-bar">
+            {gameCancel()}
 
             <div className="deck-info-wrap">
               <span className="deck-subject">{!loading && shuffled[0].subject_name.toUpperCase()}</span>
@@ -155,9 +164,13 @@ export default function PracticeDeck(props) {
             </div>
 
 
-            <div id="start" onClick={() => gameStart()}>
+            {!start && <div id="start" onClick={() => gameStart()}>
               <span id="starter">START</span>
-            </div>
+            </div>}
+
+            {start && <div id="exit" onClick={() => setBack(true)}>
+              <span id="starter">EXIT</span>
+            </div>}
 
             <div>
             </div>
@@ -173,7 +186,15 @@ export default function PracticeDeck(props) {
               {start && renderDef(definitions)}
             </div>
           }
-          {gameOver && <div id="scorenote"> <div id="grade"> Congrats! You have answered {correct} cards correctly. Score: {Math.round((correct / deckLength) * 100)}/100</div> </div>}
+          {gameOver && 
+          <div id="scorenote">
+            <div id="grade">
+              Congrats! You have answered {correct} cards correctly. Score: {Math.round((correct / deckLength) * 100)}/100
+              <div className="link-scores">
+                <a href="/profile" className="link-scores">View all scores</a>
+              </div>
+            </div>
+          </div>}
         </div>
       </div>
     </div>

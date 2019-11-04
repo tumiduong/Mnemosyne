@@ -87,7 +87,10 @@ export default function EnglishCards(props) {
                 type="text"
                 placeholder="Enter a title for your deck"
                 value={term}
-                onChange={event => setTerm(event.target.value)}
+                onChange={event => {
+                  setTerm(event.target.value);
+                  setMessage("");
+                }}
               />
               <div>
                 <input type='checkbox' onChange={event => checked ? setChecked(false) : setChecked(true)} value='1' name='selfdestruct'id="fetch-checkbox" /> 
@@ -95,7 +98,7 @@ export default function EnglishCards(props) {
               </div>
             </div>
             <div id="lookup" onClick={() => searchTerm()} >
-              <a >Search</a>
+              <a>Search</a>
             </div>
           </div>
 
@@ -109,7 +112,10 @@ export default function EnglishCards(props) {
                 type="text"
                 value={definition}
                 placeholder="Enter a definition for your term, or use search to look up a definition."
-                onChange={event => setDefinition(event.target.value)}
+                onChange={event => {
+                  setDefinition(event.target.value);
+                  setMessage("");
+                }}
               />
 
             </div>

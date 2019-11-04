@@ -90,12 +90,25 @@ div#start {
   height: 40%;
   /* width: 200px; */
   margin-left: 1em;
-  margin-top: 10px;
+  margin-top: 5px;
   justify-content: center;
   padding-top: 1em;
   background-color: #27AE60;
   border-radius: 40px;
 
+}
+
+div#exit {
+  display: flex;
+  height: 40%;
+  /* width: 200px; */
+  margin-left: 1em;
+  margin-top: 5px;
+  justify-content: center;
+  padding-top: 1em;
+  background-color: #EB5757;
+  border-radius: 40px;
+  cursor: pointer;
 }
 
 #starter {
@@ -139,4 +152,16 @@ div#start {
 
 #grade {
   margin-top: 10%;
+}
+
+.link-scores {
+  margin-top: 1%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+a.link-scores, a.link-scores:visited, a.link-scores:hover, a.link-scores:active {
+  color: inherit;
+  font-size: 0.5em;
+  font-weight: 500;
 }

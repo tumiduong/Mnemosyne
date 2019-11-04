@@ -30,7 +30,7 @@ const decks = deck.map(deck => {
     name={deck.name}
     description={deck.description}
     subjectName={deck.subject_name}
-    onClick={deck.toGame}
+    onClick={deck.toCards}
     display={false}
     mode={"practice"}
     onDelete={deck.remove} />
