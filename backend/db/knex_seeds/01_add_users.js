@@ -10,8 +10,14 @@ exports.seed = function(knex) {
           first_name: 'Bill',
           last_name: 'Gates',
           email: 'test@test.com',
-          password: '$2b$10$8ey67jAl9hdD5CEaxTlZdOwwl4mVww.WZQgm.H7KE44heXIS22DNm',
+          password: '$2b$10$8ey67jAl9hdD5CEaxTlZdOwwl4mVww.WZQgm.H7KE44heXIS22DNm'
         },
+        {
+          first_name: "Berker ",
+          last_name: "Erol",
+          email: "berkererol@gmail.com",
+          password: "$2b$10$4W.lYwdHd7VdJP6QRQk91uHmitpS6hIfdLCk0uwtv8/0yn69QfTqC"
+         }
       ]);
     }),
   ]);
