@@ -38,6 +38,12 @@ exports.seed = function(knex) {
         },
         {
           name: 'Sports',
+        },
+        {
+          name: 'Anime',
+        },
+        {
+          name: 'Dogs',
         }
       ]);
     }),

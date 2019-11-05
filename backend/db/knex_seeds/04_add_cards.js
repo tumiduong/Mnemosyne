@@ -625,6 +625,102 @@ exports.seed = function(knex) {
         definition: 'Galatasaray',
         image: 'https://i.ibb.co/2Ztk9DL/falcao.gif'         
       },
+      {
+        deck_id: 10,
+        term: 'Ash',
+        definition: '',
+        image: 'https://i.ibb.co/CsY1sqd/ash.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Pikachu',
+        definition: '',
+        image: 'https://i.ibb.co/9V37Ybs/pickachu.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Misty',
+        definition: '',
+        image: 'https://i.ibb.co/jJvx4KS/misty.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Psyduck',
+        definition: '',
+        image: 'https://i.ibb.co/wRM7YNr/psyduck.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Jigglypuff',
+        definition: '',
+        image: 'https://i.ibb.co/4JwPN65/jigglypuff.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Snorlax',
+        definition: '',
+        image: 'https://i.ibb.co/Bj7YgVx/snorlax.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Charmander',
+        definition: '',
+        image: 'https://i.ibb.co/vw1mFFQ/charmander.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'Bulbasaur',
+        definition: '',
+        image: 'https://i.ibb.co/2Yx4RD3/balbasaur.gif'         
+      },
+      {
+        deck_id: 10,
+        term: 'The Rocket Team',
+        definition: '',
+        image: 'https://i.ibb.co/w61BXvk/rocket-team.gif'         
+      },
+      {
+        deck_id: 11,
+        term: 'Chihuahua',
+        definition: '',
+        image: 'https://i.ibb.co/bPjL2hw/chihuahua.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Pug',
+        definition: '',
+        image: 'https://i.ibb.co/bF7mFHc/pug.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Husky',
+        definition: '',
+        image: 'https://i.ibb.co/rypWQzd/husky.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Beagle',
+        definition: '',
+        image: 'https://i.ibb.co/GTTpyWL/beagle.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Bull-terrier',
+        definition: '',
+        image: 'https://i.ibb.co/KXBz0KX/bull-terrier.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Golden Retriever',
+        definition: '',
+        image: 'https://i.ibb.co/hC848Cq/golden-retriever.jpg'         
+      },
+      {
+        deck_id: 11,
+        term: 'Labrador Retriever',
+        definition: '',
+        image: 'https://i.ibb.co/HrqqRXF/labrador-retriever.jpg'         
+      },
       ]);
     }),
   ]);

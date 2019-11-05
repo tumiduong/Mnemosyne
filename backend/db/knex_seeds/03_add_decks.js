@@ -66,8 +66,22 @@ exports.seed = function(knex) {
           user_id: 2,
           subject_id: 11,
           name: 'Favorite Soccer Players',
-          description: 'Top 5 players',
+          description: 'Top 10 Champions League players',
           link: 's0CcEr',
+        },
+        {
+          user_id: 2,
+          subject_id: 12,
+          name: 'Pokemon',
+          description: "Gotta catch 'em all!",
+          link: 'pkEmON',
+        },
+        {
+          user_id: 2,
+          subject_id: 13,
+          name: 'Dog',
+          description: "Cutey pies!",
+          link: 'DOGGOs',
         },
       ]);
     }),
