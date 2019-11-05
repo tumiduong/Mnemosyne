@@ -124,6 +124,7 @@ div .profile-back-text {
   font-weight: 700;
   font-size: 1.3em;
   color: white;
+  cursor: pointer;
 }
 
 .share-wrap {
