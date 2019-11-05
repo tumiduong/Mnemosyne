@@ -33,7 +33,7 @@ export default function Sidenav(props) {
 
     <div className="sidenav">
       <div className="profile-div">
-        <span id="welcome-message"> {!loading && 'Welcome back, ' + user.first_name + '.'}</span>
+        <span id="welcome-message"> {!loading && 'Welcome, ' + user.first_name + '.'}</span>
         <span id="profile-info">{!loading && user.first_name} {!loading && user.last_name}</span>
         <a id="view-profile" href="/profile"> <u>View your profile</u></a>
       </div>
