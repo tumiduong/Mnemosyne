@@ -7,13 +7,13 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          first_name: 'Bill',
-          last_name: 'Gates',
+          first_name: 'Julie',
+          last_name: 'Duong',
           email: 'test@test.com',
           password: '$2b$10$8ey67jAl9hdD5CEaxTlZdOwwl4mVww.WZQgm.H7KE44heXIS22DNm'
         },
         {
-          first_name: "Berker ",
+          first_name: "Berker",
           last_name: "Erol",
           email: "berkererol@gmail.com",
           password: "$2b$10$4W.lYwdHd7VdJP6QRQk91uHmitpS6hIfdLCk0uwtv8/0yn69QfTqC"
