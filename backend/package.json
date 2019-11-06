@@ -1,10 +1,14 @@
 {
   "name": "mnemosyne",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon -L ./bin/www"
+  },
+  "engines": {
+    "npm": "9.6.0",
+    "node": "10.16.3"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
