@@ -3,7 +3,7 @@ Flash card application that lets a user learn and memorize any subject. The user
 
 This is a final project done in the Lighthouse Labs Web Development Bootcamp by Berker Erol & Julie Duong.
 
-Built with React (hooks), JavaScript, Knex, Express, Node.js, CSS3, HTML5, & Figma.
+Built with React (hooks), JavaScript, Knex, Express, Node.js, CSS3, HTML5, & Figma. Uses the Merriam-Webster dictionary API, and the Unsplash photo API.
 
 ## Screenshots
 
